@@ -1,0 +1,6 @@
+h2 Step 1) Add Players
+
+= form_for(@player, url: add_player_path) do |f|
+  = f.text_field :name, placeholder: 'First Name'
+  = f.text_field :email, placeholder: 'Email'
+  = f.submit 'Add'

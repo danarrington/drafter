@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+  root 'draft#welcome'
+
+  get 'new/add-players' => 'draft#add_players', as: :add_players
+  post 'new/add-player' => 'draft#add_player', as: :add_player
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

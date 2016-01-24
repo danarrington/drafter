@@ -1,0 +1,14 @@
+- Integration Test for new draft
+  x Go to homepage
+  x Click 'New Draft'
+  - Add first player
+  - Make sure he gets listed (does need to be associated with draft)
+  - Enter two more
+  - Enter teams
+  - Configure
+  - Start
+
+x Add turbolinks back
+- Create Draft Model
+  - 
+- Create Player Model
