@@ -1,0 +1,4 @@
+h2 What is the name of this event?
+= form_for(@draft, url: create_draft_path) do |f|
+  = f.text_field :name, placeholder: 'Event Name'
+  = f.submit 'Add Players'

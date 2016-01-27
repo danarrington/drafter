@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root 'draft#welcome'
 
-  get 'new/add-players' => 'draft#add_players', as: :add_players
-  post 'new/add-player' => 'draft#add_player', as: :add_player
+  get 'new/create-draft' => 'draft#new', as: :new_draft
+  post 'new/create-draft' => 'draft#create', as: :create_draft
+  get 'new/:id/add-players' => 'draft#add_players', as: :add_players
+  post 'new/:id/add-player' => 'draft#add_player', as: :add_player
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
