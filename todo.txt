@@ -3,13 +3,17 @@
   x Click 'New Draft'
   x Add first player
   x Make sure he gets listed (does need to be associated with draft)
-  - Enter two more
-  - Enter teams
-  - Configure
+  x Enter two more
+  x Enter teams
+  - Review (order generated)
   - Start
+  - Picks created
 
+x add draftable
+ x rank, name
 x facade for add_players
 - bootstrap
 
 Small things to do later
+- New player name should have focus after adding
 - validation messages on new draft and add players

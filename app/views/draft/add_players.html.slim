@@ -7,6 +7,7 @@ ul
 
 = form_for(@facade.player, url: add_player_path) do |f|
   = render 'player_errors' if @facade.player.errors.any?
-  = f.text_field :name, placeholder: 'First Name'
+  = f.text_field :name, placeholder: 'First Name', autofocus: true
   = f.text_field :email, placeholder: 'Email'
   = f.submit 'Add'
+= link_to 'Finish', add_draftable_path
