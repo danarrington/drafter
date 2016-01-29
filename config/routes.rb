@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   post 'new/create-draft' => 'draft#create', as: :create_draft
   get 'new/:id/add-players' => 'draft#add_players', as: :add_players
   post 'new/:id/add-player' => 'draft#add_player', as: :add_player
-  get 'new/:id/add-draftees' => 'draft#add_draftables', as: :add_draftable
-  post 'new/:id/add-draftees' => 'draft#save_draftables', as: :save_draftables
+  get 'new/:draft_id/add-draftees' => 'draftables#batch_new', 
+    as: :add_draftable
+  post 'new/:draft_id/add-draftees' => 'draftables#batch_create', 
+    as: :save_draftables
   get 'new/:id/start' => 'draft#review', as: :review_draft
 
   # Example of regular route:

@@ -51,38 +51,4 @@ RSpec.describe DraftController, type: :controller do
     end
   end
 
-  describe 'POST save_draftables' do
-    let(:draft) {create(:draft)}
-    context 'with valid params for three teams' do
-      let(:csv_teams) {'UW, WSU, MSU'}
-      it 'creates three new teams' do
-        expect{ 
-          post :save_draftables, draftables: csv_teams, id: draft.id
-        }.to change(Draftable, :count).by(3)
-      end
-
-      it 'sets the rank for each' do
-        post :save_draftables, draftables: csv_teams, id: draft.id 
-        expect(Draftable.find_by(name: 'UW').rank).to eq 1
-        expect(Draftable.find_by(name: 'MSU').rank).to eq 3
-      end
-
-      it 'sets the draft of the new draftables' do
-        post :save_draftables, draftables: csv_teams, id: draft.id 
-        expect(Draftable.last.draft).to eq draft
-      end
-
-      it 'redirects to review_draft' do
-        post :save_draftables, draftables: csv_teams, id: draft.id 
-        expect(response).to redirect_to review_draft_path
-      end
-    end
-
-    context 'with no teams entered' do
-      it 're-renders the add_draftables view' do
-        post :save_draftables, draftables: '', id: draft.id
-        expect(response).to render_template(:add_draftables)
-      end
-    end
-  end
 end

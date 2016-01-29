@@ -1,0 +1,6 @@
+h2 Step 3: Who Can We Draft?
+h1 Draftables#new
+p Find me in app/views/draftables/new.html.slim
+= form_tag url: save_draftables_path do
+  = text_area_tag :draftables
+  = submit_tag 'Submit'

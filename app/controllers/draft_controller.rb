@@ -29,18 +29,6 @@ class DraftController < ApplicationController
     end
   end
 
-  def add_draftables
-
-  end
-
-  def save_draftables
-    if params[:draftables].blank?
-      render :add_draftables
-    else
-      create_draftables_and_redirect
-    end
-  end
-
   def review
 
   end
@@ -78,12 +66,5 @@ class DraftController < ApplicationController
     @draft.save
   end
 
-  def create_draftables_and_redirect
-    draft = Draft.find(params[:id])
-    params[:draftables].split(',').each_with_index do |name, i|
-      Draftable.create(name: name.strip, rank: i+1, draft: draft)
-    end
-    redirect_to review_draft_path
-  end
 
 end

@@ -10,4 +10,4 @@ ul
   = f.text_field :name, placeholder: 'First Name', autofocus: true
   = f.text_field :email, placeholder: 'Email'
   = f.submit 'Add'
-= link_to 'Finish', add_draftable_path
+= link_to 'Finish', add_draftable_path(@facade.draft)
