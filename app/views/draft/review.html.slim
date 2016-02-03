@@ -1,1 +1,14 @@
-h2 Step 4
+h2 Step 4: Start the Draft!
+p You're all set. A draft order has been randomly generated. Review everything 
+  below and if it looks right click Start to begin the draft. Everyone will be
+  sent an email, and the first drafter will be on the clock. Good luck!
+h3 Draft Order
+ul
+ - @facade.draft_order.each do |player| 
+  li = player.name
+h3 Draftables
+ul
+ - @facade.draftables.each do |draftable| 
+  li = draftable.name
+
+a href='#' Start Draft

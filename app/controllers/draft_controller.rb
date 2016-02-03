@@ -30,7 +30,10 @@ class DraftController < ApplicationController
   end
 
   def review
-
+    draft = Draft.find(params[:id])
+    draft_order = DraftOrderer.generate_or_retrieve_picks(draft)
+    draftables = draft.draftables
+    @facade = ReviewDraftFacade.new(draft_order, draftables)
   end
 
   private
@@ -65,6 +68,4 @@ class DraftController < ApplicationController
     @draft.players << @player
     @draft.save
   end
-
-
 end

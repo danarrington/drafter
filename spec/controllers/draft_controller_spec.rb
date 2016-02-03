@@ -51,4 +51,25 @@ RSpec.describe DraftController, type: :controller do
     end
   end
 
+  describe 'GET review' do
+    let(:draft) {create(:draft)}
+    let!(:players) {create_list(:player, 5, drafts: [draft])}
+    let!(:draftables) {create_list(:draftable, 20, draft: draft)}
+    context 'with no existing picks' do
+      it 'should create enough picks for each draftable' do
+        expect {
+          post :review, id: draft.id
+        }.to change(Pick, :count).by(20)
+      end
+    end
+    context 'with existing picks' do
+      let!(:picks) {create_list(:pick, 20, draft: draft)}
+      it 'should not create new picks' do
+        expect {
+          post :review, id: draft.id
+        }.to_not change(Pick, :count)
+      end
+    end
+  end
+
 end

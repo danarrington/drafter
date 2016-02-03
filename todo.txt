@@ -13,7 +13,8 @@ x add draftable
  x rank, name
 x facade for add_players
 - Step 4 page
-  - Generate random order
+  - Write pick_generator spec, make sure snake draft works.
+  x Generate random order
   - Create picks for player/order
   - List Draft order
   - List Draftables
