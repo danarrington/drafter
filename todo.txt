@@ -5,20 +5,30 @@
   x Make sure he gets listed (does need to be associated with draft)
   x Enter two more
   x Enter teams
-  - Review (order generated)
-  - Start
-  - Picks created
+  x Review (order generated)
+  x Picks created
+  x Start
 
 x add draftable
  x rank, name
 x facade for add_players
-- Step 4 page
-  - Write pick_generator spec, make sure snake draft works.
+x Step 4 page
+  x Write pick_generator spec, make sure snake draft works.
   x Generate random order
-  - Create picks for player/order
-  - List Draft order
-  - List Draftables
-- bootstrap
+  x Create picks for player/order
+  x List Draft order
+  x List Draftables
+- Sending mail
+  x Sign up for sendgrid
+  - Set up mailer
+  - Add .env
+  - Configure for dev
+  - Send a test email
+- Timed tasks
+- Bootstrap
+- Authentication
+- Digital Ocean
+  - Set .env
 
 Small things to do later
 - New player name should have focus after adding
