@@ -1,4 +1,6 @@
 class Player < ActiveRecord::Base
+  acts_as_token_authenticatable
+  devise :rememberable
 
   has_and_belongs_to_many :drafts
 
