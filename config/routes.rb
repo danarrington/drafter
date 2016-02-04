@@ -14,7 +14,8 @@ Rails.application.routes.draw do
     as: :add_draftable
   post 'new/:draft_id/add-draftees' => 'draftables#batch_create', 
     as: :save_draftables
-  get 'new/:id/start' => 'draft#review', as: :review_draft
+  get 'new/:id/review' => 'draft#review', as: :review_draft
+  get 'new/:id/start' => 'draft#start', as: :start_draft
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

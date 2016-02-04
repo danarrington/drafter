@@ -33,7 +33,16 @@ class DraftController < ApplicationController
     draft = Draft.find(params[:id])
     draft_order = DraftOrderer.generate_or_retrieve_picks(draft)
     draftables = draft.draftables
-    @facade = ReviewDraftFacade.new(draft_order, draftables)
+    @review = ReviewDraftFacade.new(draft_order, draftables, draft)
+  end
+
+  def start
+    draft = Draft.find(params[:id])
+    DraftStarter.new(draft).start
+
+    #TODO spec out a status dashboard that the draft admin can see
+    #This should redirect to it
+    render text: 'Started!'
   end
 
   private

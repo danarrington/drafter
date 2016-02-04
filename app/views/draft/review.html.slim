@@ -4,11 +4,11 @@ p You're all set. A draft order has been randomly generated. Review everything
   sent an email, and the first drafter will be on the clock. Good luck!
 h3 Draft Order
 ul
- - @facade.draft_order.each do |player| 
+ - @review.draft_order.each do |player| 
   li = player.name
 h3 Draftables
 ul
- - @facade.draftables.each do |draftable| 
+ - @review.draftables.each do |draftable| 
   li = draftable.name
 
-a href='#' Start Draft
+= link_to 'Start Draft', start_draft_path(@review.draft)

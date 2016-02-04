@@ -1,4 +1,24 @@
-- Integration Test for new draft
+Emails and Authentication
+- Create new draft email
+- Highlight current player
+- Send email to first pick
+
+
+  
+== Next things == 
+- Authentication
+- Timed tasks
+- Bootstrap
+- Digital Ocean
+  - Set ENV vars
+
+Small things to do later
+- New player name should have focus after adding
+- validation messages on new draft and add players
+- Be smart about emailing the peoples with two picks in a row
+
+== Done == 
+x Integration Test for new draft
   x Go to homepage
   x Click 'New Draft'
   x Add first player
@@ -18,18 +38,9 @@ x Step 4 page
   x Create picks for player/order
   x List Draft order
   x List Draftables
-- Sending mail
+x Sending mail
   x Sign up for sendgrid
-  - Set up mailer
-  - Add .env
-  - Configure for dev
-  - Send a test email
-- Timed tasks
-- Bootstrap
-- Authentication
-- Digital Ocean
-  - Set .env
-
-Small things to do later
-- New player name should have focus after adding
-- validation messages on new draft and add players
+  x Set up mailer
+  x Add .env
+  x Configure for dev
+  x Send a test email

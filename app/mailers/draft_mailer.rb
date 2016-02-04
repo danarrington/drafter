@@ -6,9 +6,13 @@ class DraftMailer < ActionMailer::Base
   #
   #   en.draft_mailer.new_draft_started.subject
   #
-  def new_draft_started
+  def new_draft_started(player)
     @greeting = "Hi"
 
-    mail to: "dan.arrington@gmail.com", subject: "We did it!"
+    mail to: player.email, subject: "We did it!"
+  end
+
+  def on_the_clock(player)
+    mail to: player.email, subject: "Drafter: You're on the clock"
   end
 end

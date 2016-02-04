@@ -2,7 +2,8 @@ require "rails_helper"
 
 RSpec.describe DraftMailer, type: :mailer do
   describe "new_draft_started" do
-    let(:mail) { DraftMailer.new_draft_started }
+    let(:player) {create(:player)}
+    let(:mail) { DraftMailer.new_draft_started(player) }
 
     it "renders the headers" do
       expect(mail.subject).to eq("New draft started")
