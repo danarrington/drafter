@@ -13,6 +13,7 @@ Emails and Authentication
   - Set ENV vars
 
 Small things to do later
+- Start new draft path skips validation/sets up admin user
 - New player name should have focus after adding
 - validation messages on new draft and add players
 - Be smart about emailing the peoples with two picks in a row

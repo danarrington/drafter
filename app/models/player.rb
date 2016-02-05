@@ -1,5 +1,4 @@
 class Player < ActiveRecord::Base
-  acts_as_token_authenticatable
   devise :rememberable
 
   has_and_belongs_to_many :drafts
@@ -7,7 +6,14 @@ class Player < ActiveRecord::Base
   validates :name, presence: true
   validates :email, presence: true
 
+  before_save :update_auth_token
+
   def name=(value)
     super(value.titleize)
+  end
+
+  private 
+  def update_auth_token
+    self.authentication_token = Devise.friendly_token
   end
 end

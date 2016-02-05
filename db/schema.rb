@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204144146) do
+ActiveRecord::Schema.define(version: 20160205142407) do
 
   create_table "draftables", force: true do |t|
     t.string   "name"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20160204144146) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "authentication_token"
+    t.datetime "remember_created_at"
   end
 
   add_index "players", ["authentication_token"], name: "index_players_on_authentication_token"
