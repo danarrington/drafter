@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :draftable do
-    name "MyString"
-rank 1
+    name {Faker::Team.state}
+    rank 1
   end
 
 end

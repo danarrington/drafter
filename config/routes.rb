@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'picks/:draft_id/:player_id/:token' => 'picks#new', as: :pick
 
-  get 'picks/create'
+  post 'picks/make/:draft_id/:draftable_id' => 'picks#make', as: :make_pick
 
   get 'authentication/sign_in', as: :sign_in
 

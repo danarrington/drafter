@@ -21,6 +21,9 @@ Pick links from email
   - Set ENV vars
 - Sign in page
 
+== Bugs ==
+- prevent double requesting start
+
 Small things to do later
 - draft controller should be plural
 - Start new draft path skips validation/sets up admin user

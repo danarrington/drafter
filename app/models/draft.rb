@@ -8,4 +8,11 @@ class Draft < ActiveRecord::Base
   def current_pick
     picks.where(draftable:nil).order(:number).first
   end
+
+  def remaining_draftables
+    draftables.joins('left outer join picks on draftables.id = picks.draftable_id').
+      select('draftables.*, picks.id as pick_id').where('picks.id is null').
+      order(:rank)
+
+  end
 end
