@@ -1,18 +1,23 @@
 Emails and Authentication
-- Create new draft email
-- Highlight current player
-- Send email to first pick
+x Create new draft email
+x Send email to first pick
+- Picks route
+  /picks/draft_id/user_id/token
+  /sign_in route
 
 
   
 == Next things == 
 - Authentication
+- Making picks
 - Timed tasks
 - Bootstrap
 - Digital Ocean
   - Set ENV vars
+- Sign in page
 
 Small things to do later
+- draft controller should be plural
 - Start new draft path skips validation/sets up admin user
 - New player name should have focus after adding
 - validation messages on new draft and add players

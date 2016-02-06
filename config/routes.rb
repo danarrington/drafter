@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'picks/:draft_id/:player_id/:token' => 'picks#new', as: :pick
+
+  get 'picks/create'
+
+  get 'authentication/sign_in', as: :sign_in
+
   devise_for :players
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

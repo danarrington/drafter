@@ -9,7 +9,7 @@ class DraftMailer < ActionMailer::Base
   def new_draft_started(player)
     @greeting = "Hi"
 
-    mail to: player.email, subject: "We did it!"
+    mail to: player.email, subject: "New draft started"
   end
 
   def on_the_clock(player)

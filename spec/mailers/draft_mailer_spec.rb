@@ -7,8 +7,7 @@ RSpec.describe DraftMailer, type: :mailer do
 
     it "renders the headers" do
       expect(mail.subject).to eq("New draft started")
-      expect(mail.to).to eq(["to@example.org"])
-      expect(mail.from).to eq(["from@example.com"])
+      expect(mail.to).to eq([player.email])
     end
 
     it "renders the body" do

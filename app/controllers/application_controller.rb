@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     if (Devise.secure_compare(player.authentication_token, auth_token))
       sign_in player, store: true
     else
-      render text: 'FAILED'
+      redirect_to sign_in_path
     end
     
   end
