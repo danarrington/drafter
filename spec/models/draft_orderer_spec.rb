@@ -36,8 +36,8 @@ describe DraftOrderer do
 
       it 'creates picks in a snake order' do
         DraftOrderer.generate_or_retrieve_picks(draft)
-        fifth_pick = Pick.where(draft: draft, number:4).first
-        sixth_pick = Pick.where(draft: draft, number:5).first
+        fifth_pick = Pick.where(draft: draft, number:5).first
+        sixth_pick = Pick.where(draft: draft, number:6).first
 
         expect(fifth_pick.player).to eq sixth_pick.player
         expect(Pick.first.player).to eq Pick.last.player

@@ -1,14 +1,19 @@
-Emails and Authentication
-x Create new draft email
-x Send email to first pick
-- Picks route
-  /picks/draft_id/user_id/token
-  /sign_in route
+Making Picks
 
+Pick page
+x Display the user's pick/overall pick
+- Display the top remaining teams
+- Display the user's existing team
+- Display recent picks
+
+Create pick
+- Link creates a pick
+- Sends next email
+
+Pick links from email
 
   
 == Next things == 
-- Authentication
 - Making picks
 - Timed tasks
 - Bootstrap
@@ -50,3 +55,10 @@ x Sending mail
   x Add .env
   x Configure for dev
   x Send a test email
+
+Emails and Authentication
+x Create new draft email
+x Send email to first pick
+x Picks route
+  /picks/draft_id/user_id/token
+  /sign_in route

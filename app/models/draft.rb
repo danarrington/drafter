@@ -4,4 +4,8 @@ class Draft < ActiveRecord::Base
   has_many :draftables
 
   validates :name, presence: true
+
+  def current_pick
+    picks.where(draftable:nil).order(:number).first
+  end
 end

@@ -1,6 +1,7 @@
 class PicksController < ApplicationController
   def new
-    @player = current_player
+    draft = Draft.find(params[:draft_id])
+    @pick_info = NewPickFacade.new(draft, current_player)
   end
 
   def create
