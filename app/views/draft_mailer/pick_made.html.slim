@@ -1,0 +1,6 @@
+h4 With the #{@pick.number.ordinalize} overall pick #{@pick.player.name} has selected
+h1 #{@pick.draftable.name}
+- if @receiver_picks_next
+  h2 You are now on the clock!
+- else 
+  p #{@next_picker.name} is now on the clock.

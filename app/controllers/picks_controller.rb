@@ -19,12 +19,13 @@ class PicksController < ApplicationController
     if pick.player != current_player
       return false
     end 
-    return update_pick(pick)
+    update_pick_and_send_emails(pick)
   end
 
-  def update_pick(pick)
+  def update_pick_and_send_emails(pick)
     draftable = Draftable.find(params[:draftable_id])
-    return pick.update(draftable: draftable)
+    pick.update(draftable: draftable)
+    MailManager.send_pick_made_emails(pick)
   end
 
 end

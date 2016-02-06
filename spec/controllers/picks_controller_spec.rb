@@ -16,6 +16,14 @@ RSpec.describe PicksController, type: :controller do
         }.to change(player.made_picks_for(draft), :count).by(1)
       end
 
+      it 'sends the pick made email to all players' do
+        team_to_draft = draft.draftables[7]
+        expect {
+          post :make, draft_id: draft.id, draftable_id: team_to_draft.id
+        }.to change{ActionMailer::Base.deliveries.count}.by(draft.players.count)
+
+      end
+
       it 'fails if the current pick does not belong to the signed in player' do
         #signed in player makes their pick
         pick.update(draftable: draft.draftables[6])
