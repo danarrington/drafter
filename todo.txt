@@ -1,8 +1,5 @@
 Making Picks
 
-Pick page
-x Display the user's pick/overall pick
-- Display the top remaining teams
 - Display the user's existing team
 - Display recent picks
 
@@ -14,15 +11,17 @@ Pick links from email
 
   
 == Next things == 
-- Making picks
+- Finish making picks
 - Timed tasks
 - Bootstrap
-- Digital Ocean
-  - Set ENV vars
+x Digital Ocean
 - Sign in page
 
 == Bugs ==
 - prevent double requesting start
+
+Things that need to happen before draft
+- Production ENV vars for mailgun
 
 Small things to do later
 - draft controller should be plural
@@ -65,3 +64,13 @@ x Send email to first pick
 x Picks route
   /picks/draft_id/user_id/token
   /sign_in route
+
+Pick page
+x Display the user's pick/overall pick
+x Display the top remaining teams
+
+Digital Ocean
+- Ran this to add the rsa key cat ~/.ssh/id_rsa.pub | ssh root@your.ip.address "sudo sshcommand acl-add dokku [description]"
+- dokku plugin:install https://github.com/dokku/dokku-postgres.git postgres        
+- dokku postgres:create rails-database (creating a database service, can use for multiple rails apps)
+- dokku postgres:link rails-database rails-sample 
