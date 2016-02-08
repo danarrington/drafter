@@ -30,3 +30,7 @@ group :test do
   gem "timecop"
   gem "poltergeist"
 end
+
+group :production do
+  gem "pg"
+end
