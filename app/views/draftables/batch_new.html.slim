@@ -1,6 +1,10 @@
-h2 Step 3: Who Can We Draft?
-h1 Draftables#new
-p Find me in app/views/draftables/new.html.slim
-= form_tag url: save_draftables_path do
-  = text_area_tag :draftables
-  = submit_tag 'Submit'
+header
+  h1 Step 4: Who Can We Draft?
+section
+  = form_tag url: save_draftables_path do
+    p 
+      | Enter a comma separated list of teams/players that are eligible to draft.
+      |  They should be ranked.
+
+    = text_area_tag :draftables
+    = submit_tag 'Submit'

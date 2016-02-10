@@ -22,7 +22,7 @@ describe 'something' do
     click_button 'Add'
     expect(Player.count).to eq 3
 
-    click_link 'Finish'
+    click_button 'Finish'
 
     fill_in('draftables', with: 'Washington, Missouri, Michigan State')
     click_button 'Submit'
@@ -31,7 +31,7 @@ describe 'something' do
     expect(page).to have_content 'Dan'
     expect(page).to have_content 'Washington'
 
-    click_link 'Start Draft'
+    click_button 'Start Draft'
 
   end
 
