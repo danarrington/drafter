@@ -1,7 +1,7 @@
 header
   h1 Step 5: Start the Draft!
 section
-  p You're all set. A draft order has been randomly generated. Review everything 
+  p You're almost set. A draft order has been randomly generated. Review everything 
     below and if it looks right click Start to begin the draft. Everyone will be
     sent an email, and the first drafter will be on the clock. Good luck!
 section.center-text
@@ -9,7 +9,6 @@ section.center-text
   ul
    - @review.draft_order.each do |player| 
     li = player.name
-  .spacer
   h3 Draftables
   ul
    - @review.draftables.each do |draftable| 

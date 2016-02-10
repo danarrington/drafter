@@ -14,18 +14,26 @@
 
 .container {
   @include outer-container;
+  margin-top:0px;
+}
+
+nav {
+  background-color: #333;
+  color: white;
+  text-align:center;
+  padding: 10px;
+  font-size: 1.5em;
 }
 header {
   @extend .standard-width;
-  margin-top:40px;
-  h1 {
-    text-align:center;
-  }
+  text-align:center;
 }
 section {
   @extend .standard-width;
+  @include pad(0 default);
 }
 
-.spacer { margin-top: 10px; }
 .center-text { text-align:center; }
+h1, h2, h3, h4, h5, h6 {margin:.75em 0;}
+.spacer {padding-top:10px;}
   
