@@ -1,10 +1,14 @@
-h2 #{@pick_info.player_name}'s #{@pick_info.player_pick_number} pick
-h3 #{@pick_info.overall_pick_number} overall
+header.pick-header
+  .name #{@pick_info.player_name}
+  .pick 
+    | / #{@pick_info.player_pick_number} pick
+    |  / #{@pick_info.overall_pick_number} overall
 
-h4 Top Teams Remaining
-table
-  - @pick_info.top_draftables.each do |d|
-    tr
-      td = d.rank
-      td = d.name
-      td = link_to 'Pick', @pick_info.pick_path_for(d), method: :post
+.thin-bar Top Teams Remaining
+section
+  ul.draftable-table
+    - @pick_info.top_draftables.each do |d|
+      li
+        .rank = d.rank
+        .name = d.name
+        .pick = button_to 'Pick', @pick_info.pick_path_for(d), method: :post

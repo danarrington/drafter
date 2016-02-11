@@ -1,0 +1,8 @@
+.thin-bar {
+  @extend .standard-width;
+  background-color: $dark-gray;
+  color: white;
+  text-align:center;
+  font-weight:500;
+  padding:5px 0px;
+}
