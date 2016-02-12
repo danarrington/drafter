@@ -5,8 +5,8 @@ header.pick-header
     |  / #{@pick_info.overall_pick_number} overall
 
 .thin-bar Top Teams Remaining
-section
-  ul.draftable-table
+section.draftable-table
+  ul
     - @pick_info.top_draftables.each do |d|
       li
         .rank = d.rank
