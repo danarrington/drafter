@@ -11,4 +11,7 @@ section.draftable-table
       li
         .rank = d.rank
         .name = d.name
-        .pick = button_to 'Pick', @pick_info.pick_path_for(d), method: :post
+        .pick = button_to 'Pick', @pick_info.pick_path_for(d), method: :post, class: 'action'
+section
+  .spacer
+  = link_to 'Show More', @pick_info.show_more_path, class: 'btn btn-block'

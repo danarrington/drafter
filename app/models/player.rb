@@ -1,5 +1,7 @@
 class Player < ActiveRecord::Base
   devise :rememberable
+  
+  alias_attribute :token, :authentication_token
 
   has_and_belongs_to_many :drafts
   has_many :picks
