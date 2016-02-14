@@ -9,9 +9,23 @@ describe Draft do
       expect(draft.current_pick.number).to eq 3
     end
   end
+
   describe "#remaining_draftables" do
     it 'returns the highest ranked unpicked draftables' do
       expect(draft.remaining_draftables.first).to eq draft.draftables[2]
+    end
+  end
+
+  describe "#recent_picks" do
+    it 'returns the previously made picks' do
+      expect(draft.recent_picks.count).to eq 2
+    end
+    
+    context "many picks made" do
+      let(:draft) {create(:late_draft_draft)}
+      it 'only returns 5 most recent picks' do
+        expect(draft.recent_picks.count).to eq 5
+      end
     end
   end
 end

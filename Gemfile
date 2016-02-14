@@ -26,6 +26,7 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "faker"
   gem "dotenv-rails"
+  gem "byebug"
 end
 
 group :test do

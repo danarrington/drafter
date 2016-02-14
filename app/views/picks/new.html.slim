@@ -15,3 +15,20 @@ section.draftable-table
 section
   .spacer
   = link_to 'Show More', @pick_info.show_more_path, class: 'btn btn-block'
+  .spacer
+.thin-bar Your Picks
+section.draftable-table
+  ul
+    - @pick_info.previous_picks.each do |p|
+      li 
+        .rank = "#{p.number}."
+        .name = p.draftable.name
+  .spacer
+.thin-bar Recent Picks
+section.draftable-table
+  ul
+    - @pick_info.recent_picks.each do |p|
+      li
+        .rank = "#{p.number}."
+        .name = "#{p.player.name} - #{p.draftable.name}"
+

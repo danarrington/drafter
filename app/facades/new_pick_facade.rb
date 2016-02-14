@@ -22,4 +22,12 @@ class NewPickFacade
   def show_more_path
     pick_path(@draft, @player, @player.token, count: @count+5)
   end
+
+  def previous_picks
+    @player.made_picks_for(@draft)
+  end
+
+  def recent_picks
+    @draft.recent_picks  
+  end
 end

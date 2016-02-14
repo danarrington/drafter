@@ -34,6 +34,7 @@ GEM
       sass (~> 3.4)
       thor (~> 0.19)
     builder (3.2.2)
+    byebug (8.2.2)
     capybara (2.6.2)
       addressable
       mime-types (>= 1.16)
@@ -182,6 +183,7 @@ PLATFORMS
 
 DEPENDENCIES
   bourbon (~> 4.2)
+  byebug
   capybara
   devise
   dotenv-rails
