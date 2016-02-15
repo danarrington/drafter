@@ -7,7 +7,9 @@ class DraftMailer < ActionMailer::Base
     mail to: player.email, subject: "New draft started"
   end
 
-  def on_the_clock(player)
+  def on_the_clock(player, pick)
+    @draft = pick.draft
+    @player = player
     mail to: player.email, subject: "Drafter: You're on the clock"
   end
 

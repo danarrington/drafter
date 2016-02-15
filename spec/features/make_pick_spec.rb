@@ -43,6 +43,16 @@ describe 'Making a pick' do
       expect(page).to have_content previous_pick.draftable.name
     end
 
+    it 'making a pick results in emails being sent' do
+      player = draft.current_pick.player
+      visit pick_path(draft, player, player.authentication_token)
+
+      click_button 'Pick', match: :first
+      
+      expect(ActionMailer::Base.deliveries.count).to eq draft.players.count
+
+    end
+
   end
 
   context 'A player making their 4th pick' do

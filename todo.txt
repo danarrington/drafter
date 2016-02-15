@@ -1,24 +1,23 @@
 Making Picks
-
-- Display the user's existing team
-- Display recent picks
-
-Create pick
-- Link creates a pick
-- Sends next email
-
-Pick links from email
+x Display the user's existing team
+x Display recent picks
+x Can makea  pick
+- Sends next emails
+- Can pick from email
+- Design it's your pick email
+- Design someone made a pick email
 
   
 == Next things == 
 - Finish making picks
+- Player page when it's not your pick
+- Figure out end of draft
 - Timed tasks
-- Bootstrap
-x Digital Ocean
 - Sign in page
 
 == Bugs ==
 - prevent double requesting start
+- prevent double making picks
 
 Things that need to happen before draft
 - Production ENV vars for mailgun
@@ -29,6 +28,10 @@ Small things to do later
 - New player name should have focus after adding
 - validation messages on new draft and add players
 - Be smart about emailing the peoples with two picks in a row
+
+== World of Ideas ==
+Auto pick list.  Easy way to add teams, move them ^ up and down v
+Should also display upcoming picks and what your next pick is.
 
 == Done == 
 x Integration Test for new draft
