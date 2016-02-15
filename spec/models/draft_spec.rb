@@ -26,6 +26,11 @@ describe Draft do
       it 'only returns 5 most recent picks' do
         expect(draft.recent_picks.count).to eq 5
       end
+
+      it 'orders recent picks in descending order' do
+        expect(draft.recent_picks.first.number).to be > 
+          draft.recent_picks.last.number
+      end
     end
   end
 end

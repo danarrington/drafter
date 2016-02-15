@@ -9,7 +9,7 @@ class DraftStarter
       DraftMailer.new_draft_started(player).deliver
     end
     first_picker = @draft.picks.first.player
-    DraftMailer.on_the_clock(first_picker).deliver
+    DraftMailer.on_the_clock(first_picker, @draft).deliver
   end
 
 end

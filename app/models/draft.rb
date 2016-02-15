@@ -16,6 +16,6 @@ class Draft < ActiveRecord::Base
   end
 
   def recent_picks
-    picks.where('number < ?', current_pick.number).order(:number).limit(5)
+    picks.where('number < ?', current_pick.number).order(number: :desc).limit(5)
   end
 end

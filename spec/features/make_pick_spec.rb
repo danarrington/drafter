@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe 'Making a pick' do
+  before(:each) {ActionMailer::Base.deliveries.clear}
 
   context 'A user picking third, who is on the clock' do
     let!(:draft) {create(:mid_draft_draft)}
@@ -33,16 +34,6 @@ describe 'Making a pick' do
       end
     end
 
-    it 'should be able to see recent picks by other players' do
-      player = draft.current_pick.player
-      visit pick_path(draft, player, player.authentication_token)
-      previous_pick = Pick.where(draft: draft, 
-        number: draft.current_pick.number-1).first
-
-      expect(page).to have_content previous_pick.player.name
-      expect(page).to have_content previous_pick.draftable.name
-    end
-
     it 'making a pick results in emails being sent' do
       player = draft.current_pick.player
       visit pick_path(draft, player, player.authentication_token)
@@ -50,7 +41,6 @@ describe 'Making a pick' do
       click_button 'Pick', match: :first
       
       expect(ActionMailer::Base.deliveries.count).to eq draft.players.count
-
     end
 
   end
@@ -65,6 +55,15 @@ describe 'Making a pick' do
       expect(page).to have_content(player.picks.first.draftable.name)
     end
 
+    it 'should be able to see recent picks by other players' do
+      player = draft.current_pick.player
+      visit pick_path(draft, player, player.authentication_token)
+      previous_pick = Pick.where(draft: draft, 
+        number: draft.current_pick.number-1).first
+
+      expect(page).to have_content previous_pick.player.name
+      expect(page).to have_content previous_pick.draftable.name
+    end
   end
 
 
