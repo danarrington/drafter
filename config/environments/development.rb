@@ -37,10 +37,10 @@ Rails.application.configure do
   
   
   #to use letter_opener_web
-  config.action_mailer.delivery_method = :letter_opener_web
+  #config.action_mailer.delivery_method = :letter_opener_web
 
   # to send actual emails
-  #config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :authentication => :plain,
     :address => "smtp.mailgun.org",
