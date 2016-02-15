@@ -1,0 +1,113 @@
+doctype html
+html lang="en" 
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta content="width=device-width, initial-scale=1" name="viewport" /
+    /! So that mobile will display zoomed in
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    /! enable media queries for windows phone 8
+    meta content="telephone=no" name="format-detection" /
+    /! disable auto telephone linking in iOS
+    title Two Columns to Rows (Simple)
+    == stylesheet_link_tag "email"
+  body bgcolor="#F0F0F0" leftmargin="0" marginheight="0" marginwidth="0" style=("margin:0; padding:0;") topmargin="0" 
+    /! 100% background wrapper (grey background)
+    table bgcolor="#F0F0F0" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" 
+      tr
+        td align="center" bgcolor="#F0F0F0" style=("background-color: #F0F0F0;") valign="top" 
+          br/
+          /! 600px container (white background)
+          table.container border="0" cellpadding="0" cellspacing="0" width="600" 
+            tr
+              td.container-padding.header align="left" 
+                | Antwort v1.0
+            tr
+              td.container-padding.content align="left" 
+                br/
+                .title Two Columns (simple)
+                br/
+                .body-text
+                  | This is an example of transforming two columns on desktop into rows on mobile.
+                  br/
+                  br/
+                .hr &nbsp;
+                br/
+                /! example: two columns (simple)
+                /![if mso]
+                  | <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                  | <tr><td width="50%" valign="top"
+                table.force-row align="left" border="0" cellpadding="0" cellspacing="0" width="264" 
+                  tr
+                    td.col valign="top" 
+                      strong Herman Melville
+                      br/
+                      br/
+                      | It's worse than being in the whirled woods, the last day of the year! Who'd go climbing after chestnuts now? But there they go, all cursing, and here I don't.
+                      br/
+                      br/
+                /![if mso] </td><td width="50%" valign="top"
+                table.force-row align="right" border="0" cellpadding="0" cellspacing="0" width="264" 
+                  tr
+                    td.col valign="top" 
+                      strong I am Ishmael
+                      br/
+                      br/
+                      | White squalls? white whale, shirr! shirr! Here have I heard all their chat just now, and the white whale—shirr! shirr!—but spoken of once! and&hellip;
+                      br/
+                      br/
+                      a href="#" class="btn" My Button!
+                /![if mso] </td></tr></table
+                /! / end example
+                .hr style=("clear: both;")  &nbsp;
+                br/
+                .subtitle
+                  | Code Walkthrough
+                .body-text
+                  ol
+                    li
+                      | li 1
+                    li
+                      | li 2
+                      ul
+                        li
+                          | 264px = (600 - 24*3) / 2 - container width minus margins divided by number of columns
+                        li
+                          | First table is aligned left.
+                        li
+                          | Second table is aligned right.
+                      br/
+                    li
+                      | Apply
+                      code clear: both;
+                      | to first element after our wrapper table.
+                  br/
+                  em
+                    small Last updated: 10 October 2014
+                br/
+            tr
+              td.container-padding.footer-text align="left" 
+                br/
+                br/
+                | Sample Footer text: &copy; 2015 Acme, Inc.
+                br/
+                br/
+                | You are receiving this email because you opted in on our website. Update your
+                a href="#"  email preferences
+                | or
+                a href="#"  unsubscribe
+                br/
+                br/
+                strong Acme, Inc.
+                br/
+                span.ios-footer
+                  | 123 Main St.
+                  br/
+                  | Springfield, MA 12345
+                  br/
+                a href="http://www.acme-inc.com"  www.acme-inc.com
+                br/
+                br/
+                br/
+          /! /600px container
+    /! /100% background wrapper
+

@@ -35,6 +35,11 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   
+  
+  #to use letter_opener_web
+  #config.action_mailer.delivery_method = :letter_opener_web
+
+  # to send actual emails
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :authentication => :plain,

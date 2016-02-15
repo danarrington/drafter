@@ -13,12 +13,16 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+group :development do
+  gem 'spring'    
+  gem 'letter_opener_web'
+end
 gem 'devise'
 
 gem "slim-rails"
 gem "bourbon", "~> 4.2"
 gem "neat", "~> 1.7"
+gem "premailer-rails"
 
 group :development, :test do
   gem 'sqlite3'
