@@ -10,7 +10,7 @@ x Design someone made a pick email
 Emails
 x Capybara for emails
 x Test for should see next pickers, best teams
-- Shows your next pick
+x Shows your next pick
 - Hilights your picks in list
 - Some more styling
 - Can click make pick link?

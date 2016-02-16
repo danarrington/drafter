@@ -27,4 +27,8 @@ class Draft < ActiveRecord::Base
     picks.where(draftable:nil).order(:number).limit(5)
   end
 
+  def next_pick_for(player)
+    picks.where(draftable:nil, player: player).order(:number).first  
+  end
+
 end

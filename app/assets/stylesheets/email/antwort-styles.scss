@@ -99,6 +99,11 @@ hr {
     font-size: 16px;
     border-bottom: 1px solid #333;
   }
+  tr.hilighted {
+    td {
+      background-color: lighten($red, 40%);
+    }
+  }
 
 }
 

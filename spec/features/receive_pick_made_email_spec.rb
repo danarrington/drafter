@@ -24,7 +24,11 @@ describe "Receiving a 'pick made' email during a draft" do
     expect(current_email).to have_content expected
   end
 
-  pending 'should list the recipients next pick'
+  it 'should list the recipients next pick' do
+    #emailing the 
+    expected = "You're next pick is the 5th pick"
+    expect(current_email).to have_content expected
+  end
 
   it 'should list the next 5 drafters' do
     next_5_picks = draft.picks.where(number: (3..7))
