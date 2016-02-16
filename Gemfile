@@ -35,6 +35,7 @@ end
 
 group :test do
   gem "capybara"
+  gem "capybara-email"
   gem "timecop"
   gem "poltergeist"
 end

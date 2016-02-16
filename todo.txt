@@ -2,10 +2,18 @@ Making Picks
 x Display the user's existing team
 x Display recent picks
 x Can makea  pick
-- Sends next emails
+x Sends next emails
 - Can pick from email
 - Design it's your pick email
-- Design someone made a pick email
+x Design someone made a pick email
+
+Emails
+x Capybara for emails
+x Test for should see next pickers, best teams
+- Shows your next pick
+- Hilights your picks in list
+- Some more styling
+- Can click make pick link?
 
   
 == Next things == 
@@ -21,6 +29,7 @@ x Can makea  pick
 
 Things that need to happen before draft
 - Production ENV vars for mailgun
+- Need to update tokens occasionally
 
 Small things to do later
 - draft controller should be plural
@@ -32,6 +41,7 @@ Small things to do later
 == World of Ideas ==
 Auto pick list.  Easy way to add teams, move them ^ up and down v
 Should also display upcoming picks and what your next pick is.
+Bunch up autopick emails
 
 == Done == 
 x Integration Test for new draft

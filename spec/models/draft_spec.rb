@@ -33,4 +33,10 @@ describe Draft do
       end
     end
   end
+
+  describe '#most_recently_made_pick' do
+    it 'returns the most recently made pick' do
+      expect(draft.most_recently_made_pick.number).to eq 2
+    end
+  end
 end

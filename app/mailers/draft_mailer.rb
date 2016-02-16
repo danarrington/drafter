@@ -13,11 +13,13 @@ class DraftMailer < ActionMailer::Base
     mail to: player.email, subject: "Drafter: You're on the clock"
   end
 
-  def pick_made(player, pick, next_pick)
-    @pick = pick
-    @next_picker = next_pick.player
-    @receiver_picks_next = @next_picker == player
-    mail to: player.email, subject: "Drafter: A pick has been made"
+  def pick_made(recipient, draft)
+    @pick = draft.most_recently_made_pick
+    @next_picker = draft.current_pick.player
+    @receiver_picks_next = @next_picker == recipient
+    @upcoming_picks = draft.next_5_picks
+    @top_remaining_draftables = draft.remaining_draftables.limit(5)
+    mail to: recipient.email, subject: "Drafter: A pick has been made"
   end
 
 end

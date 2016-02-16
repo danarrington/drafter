@@ -18,4 +18,13 @@ class Draft < ActiveRecord::Base
   def recent_picks
     picks.where('number < ?', current_pick.number).order(number: :desc).limit(5)
   end
+
+  def most_recently_made_pick
+    picks.where.not(draftable:nil).order(number: :desc).first
+  end
+
+  def next_5_picks
+    picks.where(draftable:nil).order(:number).limit(5)
+  end
+
 end
