@@ -3,31 +3,31 @@
   | selected
 .large-centered #{@pick.draftable.name}
 .body-text 
-  | #{@next_picker.name} is now on the clock. You're next pick is the 
-  | #{@next_pick} pick. Be prepared and set your autodraft priority list.
+  | <b>#{@next_picker.name}</b> is now on the clock. You're next pick is the 
+  | <b>#{@next_pick}</b> pick. Be prepared and set your autodraft priority list.
   br
   = link_to 'Set Autodraft', root_url, class: 'btn', style:"margin: 15px;"
 /! example: two columns (simple)
 /![if mso]
   | <table border="0" cellpadding="0" cellspacing="0" width="100%">
   | <tr><td width="50%" valign="top">
-table.force-row align="left" border="1" cellpadding="0" cellspacing="0" width="264" 
+table.force-row align="left" border="1" cellpadding="0" cellspacing="0" width="275" 
   tr
-    td.col valign="top" width="264"
+    td.col valign="top" width="275" style="text-align:center"
       table.column-table width="260" align="center"
         tr
-          th colspan="2" Upcoming Picks
+          th colspan="2" width="260" Upcoming Picks
         - @upcoming_picks.each do |p|
           tr class="#{p.player == @recipient ? 'hilighted' : ''}"
             td = p.number
             td = p.player.name
 /![if mso] </td><td width="50%" valign="top">
-table.force-row align="left" border="1" cellpadding="0" cellspacing="0" width="264" 
+table.force-row align="left" border="1" cellpadding="0" cellspacing="0" width="275" 
   tr
-    td.col valign="top" width="264"
-      table.column-table width="100%" align="center"
+    td.col valign="top" width="275"
+      table.column-table width="260" align="center"
         tr
-          th colspan="2" Top Remaining Teams 
+          th colspan="2" width="260" Top Remaining Teams 
         - @top_remaining_draftables.each do |d|
           tr
             td = d.rank
