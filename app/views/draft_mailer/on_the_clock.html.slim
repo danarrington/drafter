@@ -1,7 +1,8 @@
-.body-text 
-  | With the #{@pick.number.ordinalize} overall pick #{@pick.player.name} has 
-  | selected
-.large-centered #{@pick.draftable.name}
+-if @pick
+  .body-text 
+    | With the #{@pick.number.ordinalize} overall pick #{@pick.player.name} has 
+    | selected
+  .large-centered #{@pick.draftable.name}
 .body-text 
   | You are now on the clock! 
   - if @next_pick
