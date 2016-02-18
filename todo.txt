@@ -1,24 +1,8 @@
-Making Picks
-x Display the user's existing team
-x Display recent picks
-x Can makea  pick
-x Sends next emails
-- Can pick from email
-- Design it's your pick email
-x Design someone made a pick email
-
-Emails
-x Capybara for emails
-x Test for should see next pickers, best teams
-x Shows your next pick
-x Hilights your picks in list
-x Some more styling
-x Can click make pick link?
-- Handle draft started on the clock email.
-
+== Player Team Page ==
+- Mockups/wireframe
+- 
   
 == Next things == 
-- Finish making picks
 - Player page when it's not your pick
 - Figure out end of draft
 - Timed tasks
@@ -29,7 +13,7 @@ x Can click make pick link?
 - prevent double making picks
 
 Things that need to happen before draft
-- Production ENV vars for mailgun
+- Production ENV vars for mailgun, domain email address?
 - Need to update tokens occasionally
 
 Small things to do later
@@ -82,6 +66,24 @@ x Picks route
 Pick page
 x Display the user's pick/overall pick
 x Display the top remaining teams
+
+Making Picks
+x Display the user's existing team
+x Display recent picks
+x Can makea  pick
+x Sends next emails
+x Can pick from email
+x Design it's your pick email
+x Design someone made a pick email
+
+Emails
+x Capybara for emails
+x Test for should see next pickers, best teams
+x Shows your next pick
+x Hilights your picks in list
+x Some more styling
+x Can click make pick link?
+x Handle draft started on the clock email.
 
 Digital Ocean
 - Ran this to add the rsa key cat ~/.ssh/id_rsa.pub | ssh root@your.ip.address "sudo sshcommand acl-add dokku [description]"
