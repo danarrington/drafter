@@ -7,17 +7,21 @@ class DraftMailer < ActionMailer::Base
     mail to: player.email, subject: "New draft started"
   end
 
-  def on_the_clock(player, draft)
+  def on_the_clock(recipient, draft)
     @draft = draft
-    @player = player
-    mail to: player.email, subject: "Drafter: You're on the clock"
+    @player = recipient
+    @pick = draft.most_recently_made_pick
+    @next_pick = draft.next_pick_for(recipient)
+    @top_remaining_draftables = draft.remaining_draftables.limit(5)
+    @existing_team = @player.made_picks_for(@draft)
+    mail to: recipient.email, subject: "Drafter: You're on the clock"
   end
 
   def pick_made(recipient, draft)
     @pick = draft.most_recently_made_pick
     @recipient = recipient
     @next_picker = draft.current_pick.player
-    @next_pick = draft.next_pick_for(recipient).number.ordinalize
+    @next_pick = draft.next_pick_for(recipient)
     @upcoming_picks = draft.next_5_picks
     @top_remaining_draftables = draft.remaining_draftables.limit(5)
     mail to: recipient.email, subject: "Drafter: A pick has been made"

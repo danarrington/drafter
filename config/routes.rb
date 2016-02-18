@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get 'picks/:draft_id/:player_id/:token' => 'picks#new', as: :pick
   post 'picks/make/:draft_id/:draftable_id' => 'picks#make', as: :make_pick
+  get 'picks/make/:draft_id/:player_id/:draftable_id/:token' => 
+    'picks#make', as: :make_pick_from_email
 
   if Rails.env.development?
       mount LetterOpenerWeb::Engine, at: "/emails"

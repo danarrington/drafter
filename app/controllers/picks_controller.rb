@@ -1,6 +1,7 @@
 class PicksController < ApplicationController
   def new
     draft = Draft.find(params[:draft_id])
+    #TODO: do we ever trust current_player?  I think so.
     @pick_info = NewPickFacade.new(draft, current_player, count: params[:count])
   end
 

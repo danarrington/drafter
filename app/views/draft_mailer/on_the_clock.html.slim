@@ -1,13 +1,33 @@
-br/
-.title Single Column Fluid Layout
-br/
-.body-text
-  | This is an example of a single column fluid layout. There are no columns. Because the container table width is set to 100%, it automatically resizes itself to all devices. The magic of good old fashioned HTML.
-  br/
-  br/
-  | The media query change we make is to decrease the content margin from 24px to 12px for devices up to max width of 400px.
-  br/
-  br/
-  p It's your turn to pick
+.body-text 
+  | With the #{@pick.number.ordinalize} overall pick #{@pick.player.name} has 
+  | selected
+.large-centered #{@pick.draftable.name}
+.body-text 
+  | You are now on the clock! 
+  - if @next_pick
+    | After this, you'll pick again with the #{@next_pick.number.ordinalize} pick.
+  - else
+    | This is your last pick!
 
-  =link_to 'Make a pick', pick_url(@draft.id, @player.id, @player.token), class:"btn"
+  table.column-table.spacer border="0" cellpadding="0" cellspacing="0" width="100%"
+    tr
+      th colspan=3 Top Teams Remaining
+    - @top_remaining_draftables.each do |d|
+      tr
+        td = d.rank
+        td = d.name
+        td
+          = link_to 'Pick', make_pick_from_email_url(@draft, @player, d, @player.token), class: 'btn action'
+
+  =link_to 'See All Teams', pick_url(@draft.id, @player.id, @player.token), 
+    class:"btn", style:"margin: 15px;"
+
+
+  table.column-table border="0" cellpadding="0" cellspacing="0" width="100%"
+    tr
+      th colspan=3 Your Team
+    - @existing_team.each do |p|
+      tr
+        td = p.number
+        td = p.draftable.name
+        td &nbsp;

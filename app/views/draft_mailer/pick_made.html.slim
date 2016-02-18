@@ -3,15 +3,19 @@
   | selected
 .large-centered #{@pick.draftable.name}
 .body-text 
-  | <b>#{@next_picker.name}</b> is now on the clock. You're next pick is the 
-  | <b>#{@next_pick}</b> pick. Be prepared and set your autodraft priority list.
+  | <b>#{@next_picker.name}</b> is now on the clock. 
+  - if @next_pick
+    | You're next pick is the <b>#{@next_pick.number.ordinalize}</b> pick.
+    | Be prepared and set your autodraft priority list.
+  - else
+    | You have no picks left.
   br
   = link_to 'Set Autodraft', root_url, class: 'btn', style:"margin: 15px;"
 /! example: two columns (simple)
 /![if mso]
   | <table border="0" cellpadding="0" cellspacing="0" width="100%">
   | <tr><td width="50%" valign="top">
-table.force-row align="left" border="1" cellpadding="0" cellspacing="0" width="275" 
+table.force-row align="left" border="0" cellpadding="0" cellspacing="0" width="275" 
   tr
     td.col valign="top" width="275" style="text-align:center"
       table.column-table width="260" align="center"
@@ -22,7 +26,7 @@ table.force-row align="left" border="1" cellpadding="0" cellspacing="0" width="2
             td = p.number
             td = p.player.name
 /![if mso] </td><td width="50%" valign="top">
-table.force-row align="left" border="1" cellpadding="0" cellspacing="0" width="275" 
+table.force-row align="left" border="0" cellpadding="0" cellspacing="0" width="275" 
   tr
     td.col valign="top" width="275"
       table.column-table width="260" align="center"

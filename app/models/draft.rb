@@ -28,7 +28,9 @@ class Draft < ActiveRecord::Base
   end
 
   def next_pick_for(player)
-    picks.where(draftable:nil, player: player).order(:number).first  
+    current_pick_id = current_pick.id
+    picks.where(draftable:nil, player: player).where.not(id: current_pick_id).
+      order(:number).first  
   end
 
 end

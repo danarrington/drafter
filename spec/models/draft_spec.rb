@@ -39,4 +39,13 @@ describe Draft do
       expect(draft.most_recently_made_pick.number).to eq 2
     end
   end
+
+  describe '#next_pick_for' do
+    context 'for the current picker' do
+      it 'it returns their pick after the current one' do
+        current_picker = draft.current_pick.player 
+        expect(draft.next_pick_for(current_picker)).to_not eq draft.current_pick
+      end
+    end
+  end
 end

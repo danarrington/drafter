@@ -2,14 +2,14 @@ require 'rails_helper'
 
 describe "Receiving a 'pick made' email during a draft" do
   let(:draft) {create(:mid_draft_draft)}
+  let(:player_to_mail) {Pick.find(draft.current_pick.id+2).player}
 
   before do
     clear_emails
     current_pick = draft.current_pick
     current_pick.update(draftable: draft.remaining_draftables.first)
-    on_deck_pick = Pick.find(current_pick.id + 2)
-    DraftMailer.pick_made(on_deck_pick.player, draft).deliver
-    open_email(on_deck_pick.player.email)
+    DraftMailer.pick_made(player_to_mail, draft).deliver
+    open_email(player_to_mail.email)
   end
 
   it 'should list the most recent pick' do
@@ -46,6 +46,16 @@ describe "Receiving a 'pick made' email during a draft" do
     end
 
     expect(current_email).to_not have_content sixth_best_draftable.name
+  end
+
+  context 'late in the draft' do
+    let(:draft) {create(:late_draft_draft)}
+    let(:player_to_mail) {Pick.find(draft.current_pick.id-1).player}
+
+    it 'should let a player know they have no more picks' do
+      expect(current_email).to have_content "You have no picks left"
+    end
+
   end
 
 
