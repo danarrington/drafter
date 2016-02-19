@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe 'authentication' do
-  let(:player) {create(:player)}
   let(:draft) {create(:mid_draft_draft)}
+  let(:player) {draft.current_pick.player}
   context 'no user signed in' do
     context 'valid credentials provided' do
       it 'should sign in the player' do

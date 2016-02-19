@@ -1,7 +1,9 @@
 class PicksController < ApplicationController
+
+  before_action :redirect_to_player_page_unless_current_picker
+
   def new
     draft = Draft.find(params[:draft_id])
-    #TODO: do we ever trust current_player?  I think so.
     @pick_info = NewPickFacade.new(draft, current_player, count: params[:count])
   end
 
@@ -9,18 +11,24 @@ class PicksController < ApplicationController
     if submit_made_pick
       #TODO redirect to their team page
     else
-      render text: "Wait your turn"
+      #TODO Flash error 'team already taken', redirect to new
+      render text: "Quit trying to cheat"
     end
   end
 
   private
 
+  def redirect_to_player_page_unless_current_picker
+    draft = Draft.find(params[:draft_id])
+    redirect_to player_page_url unless draft.current_pick.player == current_player
+  end
+
   def submit_made_pick
-    pick = Draft.find(params[:draft_id]).current_pick
-    if pick.player != current_player
+    draft = Draft.find(params[:draft_id])
+    unless draft.draftable_available(params[:draftable_id])
       return false
     end 
-    update_pick_and_send_emails(pick)
+    update_pick_and_send_emails(draft.current_pick)
   end
 
   def update_pick_and_send_emails(pick)

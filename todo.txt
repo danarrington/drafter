@@ -1,12 +1,15 @@
 == Player Team Page ==
-- Mockups/wireframe
-- 
+x Mockups/wireframe
+- Design
+- Handle redirects after made pick (show just made pick)
+- Show current pick status
   
 == Next things == 
 - Player page when it's not your pick
 - Figure out end of draft
 - Timed tasks
 - Sign in page
+- Better desktop design
 
 == Bugs ==
 - prevent double requesting start
@@ -22,6 +25,8 @@ Small things to do later
 - New player name should have focus after adding
 - validation messages on new draft and add players
 - Be smart about emailing the peoples with two picks in a row
+- Logs/performance analysis
+- GA?  Something else?
 
 == World of Ideas ==
 Auto pick list.  Easy way to add teams, move them ^ up and down v

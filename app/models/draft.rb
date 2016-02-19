@@ -33,4 +33,8 @@ class Draft < ActiveRecord::Base
       order(:number).first  
   end
 
+  def draftable_available(draftable_id)
+    picks.where(draftable_id: draftable_id).empty?
+  end
+
 end

@@ -21,7 +21,6 @@ RSpec.describe PicksController, type: :controller do
         expect {
           post :make, draft_id: draft.id, draftable_id: team_to_draft.id
         }.to change{ActionMailer::Base.deliveries.count}.by(draft.players.count)
-
       end
 
       it 'fails if the current pick does not belong to the signed in player' do
@@ -34,6 +33,28 @@ RSpec.describe PicksController, type: :controller do
           post :make, draft_id: draft.id, draftable_id: team_to_draft.id
         }.to change(next_player.made_picks_for(draft), :count).by(0)
       end
+
+      it 'fails if the team has already been drafted' do
+        team_to_draft = draft.most_recently_made_pick.draftable
+        expect {
+          post :make, draft_id: draft.id, draftable_id: team_to_draft.id
+        }.to change(player.made_picks_for(draft), :count).by(0)
+      end
+
+      pending 'fails if the pick has already been made'
+    end
+  end
+
+  describe 'GET new' do
+    let(:draft) {create(:mid_draft_draft)}
+    let(:player) {draft.most_recently_made_pick.player}
+    context 'when it is not the players turn to pick' do
+      
+      it 'should redirect to the players page' do
+        get :new, draft_id: draft.id, player_id: player.id, token: player.token
+        expect(response).to redirect_to player_page_url
+      end
+
     end
   end
 

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'players/show' => 'players#show', as: :player_page
+
   root 'draft#welcome'
 
   devise_for :players
