@@ -15,6 +15,9 @@ describe 'Making a pick' do
       click_button 'Pick', match: :first
 
       expect(player.made_picks_for(draft).count).to eq 1
+
+      expect(page).to have_content("You're pick is in!")
+      expect(page).to have_content(draft.draftables[2].name)
     end
 
     it 'should be able to see more teams' do
@@ -43,6 +46,23 @@ describe 'Making a pick' do
       expect(ActionMailer::Base.deliveries.count).to eq draft.players.count
     end
 
+  end
+
+  context 'A player picking 5th with back-to-back picks' do
+    let!(:draft) {create(:mid_draft_draft)}
+    before do
+      draft.current_pick.update(draftable: draft.remaining_draftables.first)
+      draft.current_pick.update(draftable: draft.remaining_draftables.first)
+    end
+
+    it 'should be prompted to make their next pick immediately' do
+      draft.reload
+      player = draft.current_pick.player
+      visit pick_path(draft, player, player.authentication_token)
+      click_button 'Pick', match: :first
+
+      expect(page).to have_content 'Pick again'
+    end
   end
 
   context 'A player making their 4th pick' do

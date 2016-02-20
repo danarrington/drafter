@@ -8,11 +8,11 @@ class PicksController < ApplicationController
   end
 
   def make
-    if submit_made_pick
-      #TODO redirect to their team page
-    else
+    unless submit_made_pick
       #TODO Flash error 'team already taken', redirect to new
       render text: "Quit trying to cheat"
+    else
+      @pick_info = MadePickFacade.new(params[:draft_id])
     end
   end
 

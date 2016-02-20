@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'players/show' => 'players#show', as: :player_page
 
   root 'draft#welcome'
 
@@ -22,6 +21,8 @@ Rails.application.routes.draw do
   post 'picks/make/:draft_id/:draftable_id' => 'picks#make', as: :make_pick
   get 'picks/make/:draft_id/:player_id/:draftable_id/:token' => 
     'picks#make', as: :make_pick_from_email
+
+  get 'players/show' => 'players#show', as: :player_page
 
   if Rails.env.development?
       mount LetterOpenerWeb::Engine, at: "/emails"

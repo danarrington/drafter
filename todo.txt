@@ -1,12 +1,15 @@
 == Player Team Page ==
 x Mockups/wireframe
-- Design
-- Handle redirects after made pick (show just made pick)
+x Design
+x Show pick made page
+  x Handle back to back picks
+  - Handle, you made your last pick (nil pick bug)
 - Show current pick status
   
 == Next things == 
 - Player page when it's not your pick
 - Figure out end of draft
+- Autopick list
 - Timed tasks
 - Sign in page
 - Better desktop design
@@ -27,11 +30,15 @@ Small things to do later
 - Be smart about emailing the peoples with two picks in a row
 - Logs/performance analysis
 - GA?  Something else?
+- Flash errors (for trying to draft a drafted team)
+- Seems like we're passing tokens around a lot.  Once you're authenticated
+  we should trust that (and do authorization checks against picks).
 
 == World of Ideas ==
 Auto pick list.  Easy way to add teams, move them ^ up and down v
 Should also display upcoming picks and what your next pick is.
 Bunch up autopick emails
+Pick page/your picks table should maybe show you're upcoming picks
 
 == Done == 
 x Integration Test for new draft

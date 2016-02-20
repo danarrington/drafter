@@ -40,8 +40,6 @@ RSpec.describe PicksController, type: :controller do
           post :make, draft_id: draft.id, draftable_id: team_to_draft.id
         }.to change(player.made_picks_for(draft), :count).by(0)
       end
-
-      pending 'fails if the pick has already been made'
     end
   end
 

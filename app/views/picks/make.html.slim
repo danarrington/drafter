@@ -1,2 +1,13 @@
-h1 Picks#create
-p Find me in app/views/picks/create.html.slim
+section
+  p You're pick is in! With the #{@pick_info.pick_number} pick you have selected
+  p.large = @pick_info.drafted_team
+  - if @pick_info.has_next_pick
+    p 
+      | You have back to back picks, so you're still on the clock.
+    = link_to "Pick again", @pick_info.pick_again_path, class: 'btn action'
+
+  - else
+    p 
+      | #{@pick_info.next_picker} is now on the clock. You're next turn is the 
+      | #{@pick_info.next_pick} pick.
+    = link_to "See your team", player_page_path, class: 'btn'
