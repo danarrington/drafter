@@ -65,7 +65,7 @@ describe 'Making a pick' do
     end
   end
 
-  context 'A player making their 4th pick' do
+  context 'A player making their 4th and last pick' do
     let!(:draft) {create(:late_draft_draft)}
     it 'should be able to see their previous picks' do
       player = draft.current_pick.player
@@ -83,6 +83,12 @@ describe 'Making a pick' do
 
       expect(page).to have_content previous_pick.player.name
       expect(page).to have_content previous_pick.draftable.name
+    end
+
+    it 'should be able to make a pick' do
+      player = draft.current_pick.player
+      visit pick_path(draft, player, player.authentication_token)
+      click_button 'Pick', match: :first
     end
   end
 

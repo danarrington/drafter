@@ -6,8 +6,13 @@ section
       | You have back to back picks, so you're still on the clock.
     = link_to "Pick again", @pick_info.pick_again_path, class: 'btn action'
 
-  - else
+  - elsif @pick_info.next_pick
     p 
       | #{@pick_info.next_picker} is now on the clock. You're next turn is the 
       | #{@pick_info.next_pick} pick.
     = link_to "See your team", player_page_path, class: 'btn'
+  - else
+    p 
+      | #{@pick_info.next_picker} is now on the clock. This was your last pick.
+    = link_to "See your team", player_page_path, class: 'btn'
+    

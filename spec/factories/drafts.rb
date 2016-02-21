@@ -28,8 +28,6 @@ FactoryGirl.define do
         draft.picks.each_with_index do |p, i|
           p.update(draftable: draft.draftables[i]) if (i < 18)
         end
-        draft.picks.first.update(draftable: draft.draftables[0])
-        draft.picks.second.update(draftable: draft.draftables[1])
       end
     end
   end

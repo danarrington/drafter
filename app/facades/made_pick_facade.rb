@@ -10,8 +10,10 @@ class MadePickFacade
     @pick_number = pick.number.ordinalize
     @drafted_team = pick.draftable.name
     @next_picker = draft.current_pick.player.name
-    #TODO bug, if you made you're last pick, this is nil
-    @next_pick = draft.next_pick_for(pick.player).number.ordinalize
+    next_pick = draft.next_pick_for(pick.player)
+    if next_pick
+      @next_pick = next_pick.number.ordinalize
+    end
     @has_next_pick = draft.current_pick.player == @pick.player
   end
 
