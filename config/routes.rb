@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'picks/make/:draft_id/:player_id/:draftable_id/:token' => 
     'picks#make', as: :make_pick_from_email
 
-  get 'players/show' => 'players#show', as: :player_page
+  get 'players/show/:draft_id' => 'players#show', as: :player_page
 
   if Rails.env.development?
       mount LetterOpenerWeb::Engine, at: "/emails"

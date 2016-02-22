@@ -3,8 +3,10 @@ x Mockups/wireframe
 x Design
 x Show pick made page
   x Handle back to back picks
-  - Handle, you made your last pick (nil pick bug)
+  x Handle, you made your last pick (nil pick bug)
 - Show current pick status
+- Might be nice to have a better way to navigate pages.
+- Style made pick page
   
 == Next things == 
 - Player page when it's not your pick
@@ -33,6 +35,7 @@ Small things to do later
 - Flash errors (for trying to draft a drafted team)
 - Seems like we're passing tokens around a lot.  Once you're authenticated
   we should trust that (and do authorization checks against picks).
+- Hide 'Show more' button if all teams have been shown.
 
 == World of Ideas ==
 Auto pick list.  Easy way to add teams, move them ^ up and down v

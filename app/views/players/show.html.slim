@@ -1,2 +1,14 @@
-h1 Players#show
-p Find me in app/views/players/show.html.slim
+section
+  p 
+    | #{@facade.current_picker} is currently on the clock with the 
+    | #{@facade.current_pick} pick. 
+    - if @facade.any_picks_left
+      | You're next pick is the #{@facade.your_next_pick}.
+    - else
+      | You have no picks left.
+
+
+
+
+section
+  p You are #{current_player.name}
