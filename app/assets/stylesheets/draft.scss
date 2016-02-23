@@ -31,6 +31,10 @@ header {
 section {
   @extend .standard-width;
   @include pad(0 default);
+  p {
+    padding: 15px;
+    font-size: 1.25em;
+  }
 }
 
 .center-text { text-align:center; }

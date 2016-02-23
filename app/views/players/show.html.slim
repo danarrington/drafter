@@ -6,6 +6,18 @@ section
       | You're next pick is the #{@facade.your_next_pick}.
     - else
       | You have no picks left.
+  - if @facade.any_picks_left
+  p
+    a.btn.btn-block href='#TODO' Set Autodraft
+
+.thin-bar Your Picks
+section.draftable-table
+  ul
+    -@facade.picks.each do |p| 
+      li
+        .rank = p.number
+        .name = p.draftable.name if p.draftable
+
 
 
 
