@@ -9,8 +9,8 @@
   }
   .rank {
     display:inline;
-    padding-right:15px;
     font-size:1.5em;
+    width: 50px;
   }
   .name {
     display:inline;
@@ -21,6 +21,10 @@
     display:inline;
     float:right;
   }
+  li.hilighted {
+    background-color: lighten($red, 40%)
+  }
+  
 
 
 }

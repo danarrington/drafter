@@ -33,6 +33,11 @@ class Draft < ActiveRecord::Base
       order(:number).first  
   end
 
+  def surrounding_5_picks
+    current_number = current_pick.number
+    picks.where(number: current_number-2..current_number+2)
+  end
+
   def draftable_available(draftable_id)
     picks.where(draftable_id: draftable_id).empty?
   end
