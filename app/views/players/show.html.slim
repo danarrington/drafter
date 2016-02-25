@@ -26,5 +26,7 @@ section.draftable-table
         .name = p.draftable.name if p.draftable
 
   p
-    a.btn.btn-block href='#TODO' Show All
+    -if @facade.more_to_show?
+      = link_to "Show More", @facade.show_more_path, class: "btn btn-block"
+    = link_to "Show All", all_picks_path, class: "padded btn btn-block"
 

@@ -34,10 +34,15 @@ section {
   p {
     padding: 15px;
     font-size: 1.25em;
+    .padded {
+      margin-top: 20px;
+    }
   }
 }
 
 .center-text { text-align:center; }
 h1, h2, h3, h4, h5, h6 {margin:.75em 0;}
-.spacer {padding-top:10px;}
+.spacer {
+  padding-top:10px;
+}
   

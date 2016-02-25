@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     'picks#make', as: :make_pick_from_email
 
   get 'players/show/:draft_id' => 'players#show', as: :player_page
+  get 'players/all_picks/:draft_id' => 'players#all_picks', as: :all_picks
 
   if Rails.env.development?
       mount LetterOpenerWeb::Engine, at: "/emails"

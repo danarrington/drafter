@@ -1,0 +1,11 @@
+section.draftable-table
+  ul
+    - @draft.picks.each do |p|
+      li
+        .rank = p.number
+        .name = p.player.name
+        .name = p.draftable.name if p.draftable
+  p
+    = link_to "Back", player_page_path, class: "btn btn-block"
+
+

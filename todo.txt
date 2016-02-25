@@ -1,17 +1,11 @@
-== Player Team Page ==
-x Mockups/wireframe
-x Design
-x Show pick made page
-  x Handle back to back picks
-  x Handle, you made your last pick (nil pick bug)
-- Show current pick status
-- Might be nice to have a better way to navigate pages.
-- Style made pick page
-  
+== End of draft ==  
+
+
 == Next things == 
-- Player page when it's not your pick
 - Figure out end of draft
+- Ship and test
 - Autopick list
+- Might be nice to have a better way to navigate pages.
 - Timed tasks
 - Sign in page
 - Better desktop design
@@ -99,6 +93,16 @@ x Hilights your picks in list
 x Some more styling
 x Can click make pick link?
 x Handle draft started on the clock email.
+
+== Player Team Page ==
+x Mockups/wireframe
+x Design
+x Show pick made page
+  x Handle back to back picks
+  x Handle, you made your last pick (nil pick bug)
+x Show current pick status
+x Style made pick page
+x Show all picks page
 
 Digital Ocean
 - Ran this to add the rsa key cat ~/.ssh/id_rsa.pub | ssh root@your.ip.address "sudo sshcommand acl-add dokku [description]"
