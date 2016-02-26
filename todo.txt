@@ -1,11 +1,13 @@
 == End of draft ==  
+- New 'the draft is over' email
+- Shows Your team, then other teams, with a link to view the entire draft
+- All pages redirect to the draft results page
 
 
 == Next things == 
 - Figure out end of draft
 - Ship and test
 - Autopick list
-- Might be nice to have a better way to navigate pages.
 - Timed tasks
 - Sign in page
 - Better desktop design
