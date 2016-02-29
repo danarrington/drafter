@@ -31,9 +31,14 @@ class PicksController < ApplicationController
     update_pick_and_send_emails(draft.current_pick)
   end
 
+  #TODO: refactor this to a PickHandler or similar service object
   def update_pick_and_send_emails(pick)
     draftable = Draftable.find(params[:draftable_id])
     pick.update(draftable: draftable)
+    send_pick_made_emails(pick)
+  end
+
+  def send_pick_made_emails(pick)
     MailManager.send_pick_made_emails(pick)
   end
 

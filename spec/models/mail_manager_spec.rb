@@ -16,6 +16,14 @@ describe MailManager do
         to eq "Drafter: You're on the clock"
     end
 
+    context 'where last pick has been made' do
+      let(:draft) {create(:finished_draft)}
+
+      it "should send all players the 'draft finished' email" do
+        MailManager.send_pick_made_emails(draft.recent_picks.last)
+      end
+    end
+
   end
 
 

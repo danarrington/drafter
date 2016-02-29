@@ -1,4 +1,5 @@
 class MailManager
+  #TODO: move to wherever we decide service objects live
 
   def self.send_pick_made_emails(pick)
     draft = pick.draft

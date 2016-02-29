@@ -41,6 +41,17 @@ FactoryGirl.define do
         end
       end
     end
+
+    factory :finished_draft do
+      after(:create) do |draft|
+        create_list(:draftable, 20, draft: draft)
+        create_list(:player, 5, drafts: [draft])
+        DraftOrderer.generate_or_retrieve_picks(draft)
+        draft.picks.each_with_index do |p, i|
+          p.update(draftable: draft.draftables[i]) if (i < 20)
+        end
+      end
+    end
   end
 
 end
