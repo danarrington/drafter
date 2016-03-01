@@ -12,7 +12,9 @@ describe 'Making the last pick of a draft' do
 
     #TODO expect to see draft recap
     
-    expect(ActionMailer::Base.deliveries.count).to eq draft.players.count
+    all_deliveries = ActionMailer::Base.deliveries
+    expect(all_deliveries.count).to eq draft.players.count
+    expect(all_deliveries.last.subject).to eq "Drafter: The last pick is in"
 
   end
 

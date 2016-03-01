@@ -3,8 +3,10 @@ class MailManager
 
   def self.send_pick_made_emails(pick)
     draft = pick.draft
-    draft.players.each do |player|
-      send_pick_made_or_on_the_clock_email(player, draft)
+    if draft.is_over?
+      draft.players.each{|p| DraftMailer.last_pick_made(p, draft).deliver}
+    else
+      draft.players.each{|p| send_pick_made_or_on_the_clock_email(p, draft)}
     end
   end
 

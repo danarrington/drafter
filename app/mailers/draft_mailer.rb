@@ -27,4 +27,10 @@ class DraftMailer < ActionMailer::Base
     mail to: recipient.email, subject: "Drafter: A pick has been made"
   end
 
+  def last_pick_made(recipient, draft)
+
+    #TODO finish this email
+    mail to: recipient.email, subject: "Drafter: The last pick is in"
+  end
+
 end

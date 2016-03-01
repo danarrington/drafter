@@ -42,4 +42,8 @@ class Draft < ActiveRecord::Base
     picks.where(draftable_id: draftable_id).empty?
   end
 
+  def is_over?
+    current_pick == nil    
+  end
+
 end
