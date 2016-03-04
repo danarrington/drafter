@@ -2,6 +2,7 @@
 - New 'the draft is over' email
 - Shows Your team, then other teams, with a link to view the entire draft
 - All pages redirect to the draft results page
+- Page needs to not explode after the last pick is made
 
 
 == Next things == 
@@ -10,6 +11,7 @@
 - Autopick list
 - Timed tasks
 - Sign in page
+- Appsignal/Skylight/rollbar
 - Better desktop design
 
 == Bugs ==
@@ -32,6 +34,8 @@ Small things to do later
 - Seems like we're passing tokens around a lot.  Once you're authenticated
   we should trust that (and do authorization checks against picks).
 - Hide 'Show more' button if all teams have been shown.
+- Auth on viewing draft recap for players in draft
+- RESTasize the routes
 
 == World of Ideas ==
 Auto pick list.  Easy way to add teams, move them ^ up and down v

@@ -1,0 +1,27 @@
+.body-text 
+  | With the #{@pick.number.ordinalize} and final pick #{@pick.player.name} has 
+  | selected
+.large-centered #{@pick.draftable.name}
+.body-text
+  | This concludes the draft.
+
+  table.column-table.spacer border="0" cellpadding="0" cellspacing="0" width="100%"
+    tr
+      th Your Team
+    - @player_team.each do |p|
+      tr
+        td = p.draftable.name
+  =link_to 'Full Draft Recap', draft_recap_url(@draft.id), 
+    class:"btn", style:"margin: 15px;"
+    
+  .large-cenetered Other Teams
+  - @other_players.each do |player|
+    table.column-table.spacer border="0" cellpadding="0" cellspacing="0" width="100%"
+      tr
+        th = player.name
+      - player.picks.each do |p|
+        tr
+          td = p.draftable.name
+
+
+

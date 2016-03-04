@@ -28,8 +28,11 @@ class DraftMailer < ActionMailer::Base
   end
 
   def last_pick_made(recipient, draft)
-
     #TODO finish this email
+    @pick = draft.most_recently_made_pick
+    @player_team = recipient.picks_for(draft)
+    @draft = draft
+    @other_players = @draft.players.reject {|p| p == recipient}
     mail to: recipient.email, subject: "Drafter: The last pick is in"
   end
 

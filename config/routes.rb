@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   root 'draft#welcome'
+  get 'drafts/:id' => 'draft#show', as: :draft_recap
 
   devise_for :players
   get 'authentication/sign_in', as: :sign_in

@@ -47,6 +47,10 @@ class DraftController < ApplicationController
     render text: 'Started!'
   end
 
+  def show
+    render text: 'recap'
+  end
+
   private
   def player_params
     params.require(:player).permit(:name, :email)
