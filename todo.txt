@@ -1,6 +1,7 @@
 == End of draft ==  
-- New 'the draft is over' email
-- Shows Your team, then other teams, with a link to view the entire draft
+x New 'the draft is over' email
+x Shows Your team, then other teams, with a link to view the entire draft
+- Viewing player page is currently broken, write a test.
 - All pages redirect to the draft results page
 - Page needs to not explode after the last pick is made
 

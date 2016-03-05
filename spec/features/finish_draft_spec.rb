@@ -11,6 +11,7 @@ describe 'Making the last pick of a draft' do
     click_button "Pick"
 
     #TODO expect to see draft recap
+    expect(page).to have_content 'This concludes the draft'
     
     all_deliveries = ActionMailer::Base.deliveries
     expect(all_deliveries.count).to eq draft.players.count

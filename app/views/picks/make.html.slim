@@ -1,7 +1,10 @@
 section
   p You're pick is in! With the #{@pick_info.pick_number} pick you have selected
   p.large = @pick_info.drafted_team
-  - if @pick_info.has_next_pick
+  - if @pick_info.draft_over
+    p This concludes the draft.
+    = link_to "See your team", player_page_path, class: 'btn'
+  - elsif @pick_info.has_next_pick
     p 
       | You have back to back picks, so you're still on the clock.
     = link_to "Pick again", @pick_info.pick_again_path, class: 'btn action'
