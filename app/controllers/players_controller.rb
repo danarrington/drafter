@@ -1,6 +1,9 @@
 class PlayersController < ApplicationController
+
+  before_action :redirect_to_recap_if_draft_over
+
   def show
-    @facade = PlayerTeamFacade.new(params[:draft_id], current_player, 
+    @facade = PlayerTeamFacade.new(params[:draft_id], current_player,
                                    count: params[:count])
   end
 

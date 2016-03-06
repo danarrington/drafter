@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user_from_token!
 
 
-  def authenticate_user_from_token! 
+  def authenticate_user_from_token!
     auth_token = params[:token]
     player_id = params[:player_id]
     return if player_signed_in? && auth_token.blank?
@@ -18,6 +18,12 @@ class ApplicationController < ActionController::Base
     else
       redirect_to sign_in_path
     end
-    
+  end
+
+  def redirect_to_recap_if_draft_over
+    draft = Draft.find(params[:draft_id])
+    if draft.is_over?
+      redirect_to draft_recap_path
+    end
   end
 end

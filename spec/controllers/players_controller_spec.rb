@@ -23,6 +23,14 @@ RSpec.describe PlayersController, type: :controller do
           expect(response).to have_http_status(:success)
         end
       end
+
+      context "Draft is over" do
+        let(:draft) {create(:finished_draft)}
+        it "redirects to the draft recap" do
+          get :show, draft_id: draft.id
+          expect(response).to redirect_to draft_recap_path
+        end
+      end
     end
   end
 
