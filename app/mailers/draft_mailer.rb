@@ -23,6 +23,7 @@ class DraftMailer < ActionMailer::Base
     @next_picker = draft.current_pick.player
     @next_pick = draft.next_pick_for(recipient)
     @upcoming_picks = draft.next_5_picks
+    @picker_name = (recipient == @pick.player) ? "you" : @pick.player.name
     @top_remaining_draftables = draft.remaining_draftables.limit(5)
     mail to: recipient.email, subject: "Drafter: A pick has been made"
   end

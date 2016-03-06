@@ -1,2 +1,14 @@
-h1 Recaps#show
-p Find me in app/views/recaps/show.html.slim
+section
+  p.center-text.large = "#{@draft.name} Recap"
+  a.btn.btn-block href="#TODO" View By Teams
+  .spacer
+.thin-bar Draft Results
+section.draftable-table
+  ul
+    - @draft.picks.each do |p|
+      li
+        .rank = p.number
+        .name = p.player.name
+        .name = "#{p.draftable.name} (#{p.draftable.rank})"
+  
+

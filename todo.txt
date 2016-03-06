@@ -1,14 +1,8 @@
-== End of draft ==  
-x New 'the draft is over' email
-x Shows Your team, then other teams, with a link to view the entire draft
-x Viewing player page is currently broken, write a test.
-- All pages redirect to the draft results page
-- Page needs to not explode after the last pick is made
 
 
 == Next things == 
-- Figure out end of draft
 - Ship and test
+- New draft email (draft started)
 - Autopick list
 - Timed tasks
 - Sign in page
@@ -37,6 +31,7 @@ Small things to do later
 - Hide 'Show more' button if all teams have been shown.
 - Auth on viewing draft recap for players in draft
 - RESTasize the routes
+- Draft emails should have name of draft.
 
 == World of Ideas ==
 Auto pick list.  Easy way to add teams, move them ^ up and down v
@@ -110,6 +105,13 @@ x Show pick made page
 x Show current pick status
 x Style made pick page
 x Show all picks page
+
+== End of draft ==  
+x New 'the draft is over' email
+x Shows Your team, then other teams, with a link to view the entire draft
+x Viewing player page is currently broken, write a test.
+x All pages redirect to the draft results page
+x Page needs to not explode after the last pick is made
 
 Digital Ocean
 - Ran this to add the rsa key cat ~/.ssh/id_rsa.pub | ssh root@your.ip.address "sudo sshcommand acl-add dokku [description]"
