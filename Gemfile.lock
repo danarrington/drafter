@@ -111,7 +111,7 @@ GEM
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
-    pg (0.18.4)
+    pg (0.18.1)
     poltergeist (1.9.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -223,7 +223,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener_web
   neat (~> 1.7)
-  pg
+  pg (= 0.18.1)
   poltergeist
   premailer-rails
   rails (= 4.1.6)
