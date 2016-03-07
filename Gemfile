@@ -14,7 +14,7 @@ gem 'turbolinks'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do
-  gem 'spring'    
+  gem 'spring'
   gem 'letter_opener_web'
 end
 gem 'devise'
@@ -44,4 +44,5 @@ end
 
 group :production do
   gem "pg", "0.18.1"
+  gem "remote_syslog_logger"
 end
