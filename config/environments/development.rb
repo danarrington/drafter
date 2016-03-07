@@ -40,6 +40,9 @@ Rails.application.configure do
 
   # to send actual emails
   #config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_options = {
+    from: 'from@sandbox03cef81ae9f946a197266c69d34b2f94.mailgun.org'
+  }
   config.action_mailer.smtp_settings = {
     :authentication => :plain,
     :address => "smtp.mailgun.org",

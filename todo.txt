@@ -1,6 +1,8 @@
+== Deploy/productionalize some things ==
+- Push
+- Setup mailgun
 
-
-== Next things == 
+== Next things ==
 - Ship and test
 - New draft email (draft started)
 - Autopick list
@@ -14,7 +16,8 @@
 - prevent double making picks
 
 Things that need to happen before draft
-- Production ENV vars for mailgun, domain email address?
+x Production ENV vars for mailgun,
+- Update from domain email address
 - Need to update tokens occasionally
 
 Small things to do later
@@ -32,6 +35,7 @@ Small things to do later
 - Auth on viewing draft recap for players in draft
 - RESTasize the routes
 - Draft emails should have name of draft.
+- Look into fail2ban or something for DO server
 
 == World of Ideas ==
 Auto pick list.  Easy way to add teams, move them ^ up and down v
@@ -39,7 +43,7 @@ Should also display upcoming picks and what your next pick is.
 Bunch up autopick emails
 Pick page/your picks table should maybe show you're upcoming picks
 
-== Done == 
+== Done ==
 x Integration Test for new draft
   x Go to homepage
   x Click 'New Draft'
@@ -106,7 +110,7 @@ x Show current pick status
 x Style made pick page
 x Show all picks page
 
-== End of draft ==  
+== End of draft ==
 x New 'the draft is over' email
 x Shows Your team, then other teams, with a link to view the entire draft
 x Viewing player page is currently broken, write a test.
@@ -115,6 +119,6 @@ x Page needs to not explode after the last pick is made
 
 Digital Ocean
 - Ran this to add the rsa key cat ~/.ssh/id_rsa.pub | ssh root@your.ip.address "sudo sshcommand acl-add dokku [description]"
-- dokku plugin:install https://github.com/dokku/dokku-postgres.git postgres        
+- dokku plugin:install https://github.com/dokku/dokku-postgres.git postgres
 - dokku postgres:create rails-database (creating a database service, can use for multiple rails apps)
-- dokku postgres:link rails-database rails-sample 
+- dokku postgres:link rails-database rails-sample

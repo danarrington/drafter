@@ -1,6 +1,4 @@
 class DraftMailer < ActionMailer::Base
-  #default from: "from@sandbox03cef81ae9f946a197266c69d34b2f94.mailgun.org"
-  default from: "from@drafter.appington.io"
 
   def new_draft_started(player)
     @greeting = "Hi"
