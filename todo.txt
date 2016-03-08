@@ -1,9 +1,9 @@
 == Deploy/productionalize some things ==
-- Push
-- Setup mailgun
+x Push
+x Setup mailgun
+- Fix asset pipeline
 
 == Next things ==
-- Ship and test
 - New draft email (draft started)
 - Autopick list
 - Timed tasks
