@@ -79,7 +79,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_options = {
-    from: 'from@drafter.appington.io'
+    from: '"Drafter" <noreply@drafter.appington.io>'
   }
   config.action_mailer.smtp_settings = {
     :authentication => :plain,
