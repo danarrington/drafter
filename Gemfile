@@ -11,6 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'nokogiri', '1.6.7.2'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do

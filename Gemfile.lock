@@ -231,6 +231,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener_web
   neat (~> 1.7)
+  nokogiri (= 1.6.7.2)
   pg (= 0.18.1)
   poltergeist
   premailer-rails
