@@ -89,4 +89,5 @@ Rails.application.configure do
     :user_name => ENV["MAILGUN_USERNAME"],
     :password => ENV["MAILGUN_PASSWORD"]
   }
+  config.mailgun_domain = "mg.appington.io"
 end

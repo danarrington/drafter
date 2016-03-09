@@ -36,10 +36,10 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   #to use letter_opener_web
-   config.action_mailer.delivery_method = :letter_opener_web
+  #config.action_mailer.delivery_method = :letter_opener_web
 
   # to send actual emails
-  #config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_options = {
     from: '"Drafter" <from@sandbox03cef81ae9f946a197266c69d34b2f94.mailgun.org>'
   }
@@ -51,4 +51,5 @@ Rails.application.configure do
     :user_name => ENV["MAILGUN_USERNAME"],
     :password => ENV["MAILGUN_PASSWORD"]
   }
+  config.mailgun_domain = "sandbox03cef81ae9f946a197266c69d34b2f94.mailgun.org"
 end

@@ -1,6 +1,5 @@
 class DraftMailer < ActionMailer::Base
-  default "Message-ID" => lambda {"<#{SecureRandom.uuid}@mg.appington.io>"}
-
+  default "Message-ID" => lambda {|v| "<#{SecureRandom.uuid}@#{Rails.configuration.mailgun_domain}"}
 
   def new_draft_started(player)
     @greeting = "Hi"
