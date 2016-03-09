@@ -40,16 +40,4 @@ Rails.application.configure do
 
   # to send actual emails
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_options = {
-    from: '"Drafter" <from@sandbox03cef81ae9f946a197266c69d34b2f94.mailgun.org>'
-  }
-  config.action_mailer.smtp_settings = {
-    :authentication => :plain,
-    :address => "smtp.mailgun.org",
-    :port => 587,
-    :domain => "sandbox03cef81ae9f946a197266c69d34b2f94.mailgun.org",
-    :user_name => ENV["MAILGUN_USERNAME"],
-    :password => ENV["MAILGUN_PASSWORD"]
-  }
-  config.mailgun_domain = "sandbox03cef81ae9f946a197266c69d34b2f94.mailgun.org"
 end

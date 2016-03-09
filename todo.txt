@@ -1,11 +1,9 @@
-== Deploy/productionalize some things ==
-x Push
-x Setup mailgun
-- Fix asset pipeline
+
 
 == Next things ==
-- New draft email (draft started)
 - Autopick list
+- 12factor -> papertrail
+- New draft email (draft started)
 - Timed tasks
 - Sign in page
 - Appsignal/Skylight/rollbar
@@ -17,8 +15,10 @@ x Setup mailgun
 
 Things that need to happen before draft
 x Production ENV vars for mailgun,
-- Update from domain email address
+x Update from domain email address
+- Clean up footer in emails
 - Need to update tokens occasionally
+
 
 Small things to do later
 - draft controller should be plural
@@ -116,6 +116,11 @@ x Shows Your team, then other teams, with a link to view the entire draft
 x Viewing player page is currently broken, write a test.
 x All pages redirect to the draft results page
 x Page needs to not explode after the last pick is made
+
+== Deploy/productionalize some things ==
+x Push
+x Setup mailgun
+x Fix asset pipeline
 
 Digital Ocean
 - Ran this to add the rsa key cat ~/.ssh/id_rsa.pub | ssh root@your.ip.address "sudo sshcommand acl-add dokku [description]"
