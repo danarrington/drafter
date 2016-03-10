@@ -8,7 +8,7 @@ class PicksController < ApplicationController
   end
 
   def make
-    unless submit_made_pick
+    unless PickHandler.run(params[:draft_id], params[:draftable_id])
       #TODO Flash error 'team already taken', redirect to new
       render text: "Quit trying to cheat"
     else
@@ -22,24 +22,4 @@ class PicksController < ApplicationController
     draft = Draft.find(params[:draft_id])
     redirect_to player_page_url unless draft.current_pick.player == current_player
   end
-
-  def submit_made_pick
-    draft = Draft.find(params[:draft_id])
-    unless draft.draftable_available(params[:draftable_id])
-      return false
-    end 
-    update_pick_and_send_emails(draft.current_pick)
-  end
-
-  #TODO: refactor this to a PickHandler or similar service object
-  def update_pick_and_send_emails(pick)
-    draftable = Draftable.find(params[:draftable_id])
-    pick.update(draftable: draftable)
-    send_pick_made_emails(pick)
-  end
-
-  def send_pick_made_emails(pick)
-    MailManager.send_pick_made_emails(pick)
-  end
-
 end

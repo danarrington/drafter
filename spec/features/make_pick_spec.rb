@@ -42,7 +42,7 @@ describe 'Making a pick' do
       visit pick_path(draft, player, player.authentication_token)
 
       click_button 'Pick', match: :first
-      
+
       expect(ActionMailer::Base.deliveries.count).to eq draft.players.count
     end
 
@@ -78,7 +78,7 @@ describe 'Making a pick' do
     it 'should be able to see recent picks by other players' do
       player = draft.current_pick.player
       visit pick_path(draft, player, player.authentication_token)
-      previous_pick = Pick.where(draft: draft, 
+      previous_pick = Pick.where(draft: draft,
         number: draft.current_pick.number-1).first
 
       expect(page).to have_content previous_pick.player.name
@@ -90,6 +90,27 @@ describe 'Making a pick' do
       visit pick_path(draft, player, player.authentication_token)
       click_button 'Pick', match: :first
     end
+  end
+
+  context 'A player picking when the on-deck picker has an autodraft set' do
+    let!(:draft) {create(:mid_draft_draft)}
+    let(:team_to_autodraft) {draft.draftables.last}
+    before do
+      next_picker = draft.picks[draft.current_pick.id+1].player
+      create(:autodraft, draft: draft, player: next_picker,
+             draftable: team_to_autodraft)
+    end
+
+    it 'should autodraft for the on deck player' do
+      player = draft.current_pick.player
+      visit pick_path(draft, player, player.authentication_token)
+      click_button 'Pick', match: :first
+
+      expect(draft.most_recently_made_pick.draftable).to eq team_to_autodraft
+    end
+
+
+
   end
 
 

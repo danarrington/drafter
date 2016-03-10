@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160205142407) do
+ActiveRecord::Schema.define(version: 20160309151659) do
+
+  create_table "autodrafts", force: true do |t|
+    t.integer  "draft_id"
+    t.integer  "player_id"
+    t.integer  "draftable_id"
+    t.integer  "order"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "autodrafts", ["draft_id"], name: "index_autodrafts_on_draft_id"
+  add_index "autodrafts", ["draftable_id"], name: "index_autodrafts_on_draftable_id"
+  add_index "autodrafts", ["player_id"], name: "index_autodrafts_on_player_id"
 
   create_table "draftables", force: true do |t|
     t.string   "name"

@@ -1,4 +1,9 @@
-
+== Autopick list ==
+x Decide on schema
+x Create migrations
+x Refactor pick controller pick handling to service object
+- Add tests to that to handle autopicks
+- Be able to set your autopick
 
 == Next things ==
 - Autopick list
@@ -26,7 +31,6 @@ Small things to do later
 - New player name should have focus after adding
 - validation messages on new draft and add players
 - Be smart about emailing the peoples with two picks in a row
-- Logs/performance analysis
 - GA?  Something else?
 - Flash errors (for trying to draft a drafted team)
 - Seems like we're passing tokens around a lot.  Once you're authenticated
