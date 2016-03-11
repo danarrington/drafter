@@ -30,7 +30,7 @@ class Draft < ActiveRecord::Base
   def next_pick_for(player)
     current_pick_id = current_pick.id
     picks.where(draftable:nil, player: player).where.not(id: current_pick_id).
-      order(:number).first  
+      order(:number).first
   end
 
   def surrounding_picks(count)
@@ -43,7 +43,7 @@ class Draft < ActiveRecord::Base
   end
 
   def is_over?
-    current_pick == nil    
+    current_pick == nil
   end
 
 end

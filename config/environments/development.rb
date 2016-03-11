@@ -36,8 +36,8 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   #to use letter_opener_web
-  #config.action_mailer.delivery_method = :letter_opener_web
+  config.action_mailer.delivery_method = :letter_opener_web
 
   # to send actual emails
-  config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.delivery_method = :smtp
 end

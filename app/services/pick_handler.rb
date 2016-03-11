@@ -6,16 +6,22 @@ class PickHandler
       return false
     end
 
-    update_pick_and_send_emails(draft.current_pick, draftable_id)
-
+    handle_pick(draft, draftable_id)
   end
 
   private
 
-  def self.update_pick_and_send_emails(pick, draftable_id)
+  def.handle_pick(draft, draftable_id)
+    pick = update_pick(draft.current_pick, draftable_id)
+    make_auto_draft_picks
+    #autodraft
+    send_pick_made_emails(pick)
+  end
+
+  def self.update_pick(pick, draftable_id)
     draftable = Draftable.find(draftable_id)
     pick.update(draftable: draftable)
-    send_pick_made_emails(pick)
+    pick
   end
 
   def self.send_pick_made_emails(pick)
