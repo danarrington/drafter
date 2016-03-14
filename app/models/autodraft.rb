@@ -9,6 +9,12 @@ class Autodraft < ActiveRecord::Base
     return next_available_autodraft(autodrafts, pick)
   end
 
+  def self.current_for(draft, player)
+    #TODO optimize query
+    autodrafts = where(draft: draft, player: player)
+    autodrafts.reject{|a| Pick.where(draftable: a).any?}
+  end
+
   private
 
   def self.next_available_autodraft(autodrafts, pick)

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resource :recap, only: [:show]
   end
 
+
   devise_for :players
   get 'authentication/sign_in', as: :sign_in
 
@@ -29,6 +30,11 @@ Rails.application.routes.draw do
 
   get 'players/show/:draft_id' => 'players#show', as: :player_page
   get 'players/all_picks/:draft_id' => 'players#all_picks', as: :all_picks
+
+  get 'autodrafts/:draft_id/:player_id/:token' => 'autodrafts#index',
+    as: :autodrafts
+  post 'autodrafts/:draft_id/:player_id/:draftable_id' => 
+    'autodrafts#create', as: :add_autodraft
 
   if Rails.env.development?
       mount LetterOpenerWeb::Engine, at: "/emails"

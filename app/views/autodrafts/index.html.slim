@@ -1,0 +1,27 @@
+header
+  h1 Set Autodraft
+  p Set your autodraft list here.  When it's your turn to pick the highest
+    remaining team on your autodraft list will be selected for you.  You will
+    be the envy of the draft as no one has to wait for you to get out of your
+    meeting to make your pick.
+.thin-bar Your current autodraft list
+section.draftable-table
+  ul
+    - @autodrafts.each do |a|
+      li
+        .rank
+          a.btn href="#" ^
+        .rank = a.order
+        .name = a.draftable.name
+        .rank
+          a.btn href="#" V
+.thin-bar Top remaining teams
+section.draftable-table
+  ul
+    - @top_remaining.each do |d|
+      li
+        .rank = d.rank
+        .name = d.name
+        .pick = button_to "Add", add_autodraft_path(@draft, @player, d)
+
+
