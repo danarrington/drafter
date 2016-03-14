@@ -1,7 +1,9 @@
-.body-text 
-  | With the #{@pick.number.ordinalize} overall pick #{@picker_name} has 
-  | selected
-.large-centered #{@pick.draftable.name}
+- @picks.each do |p|
+  .body-text 
+    | With the #{p.number.ordinalize} overall pick #{p.player.name} has 
+    | selected
+    = " via autodraft" if p.autodrafted
+  .large-centered #{p.draftable.name}
 .body-text 
   | <b>#{@next_picker.name}</b> is now on the clock. 
   - if @next_pick

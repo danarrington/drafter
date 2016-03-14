@@ -18,7 +18,8 @@ RSpec.describe DraftMailer, type: :mailer do
   describe "last_pick_made" do
     let(:player) {create(:player)}
     let(:draft) {create(:finished_draft)}
-    let(:mail) { DraftMailer.last_pick_made(player, draft) }
+    let(:last_pick) {draft.most_recently_made_pick}
+    let(:mail) { DraftMailer.last_pick_made(player, draft, [last_pick]) }
 
     it "renders the headers" do
       expect(mail.subject).to eq("Drafter: The last pick is in")
@@ -26,7 +27,7 @@ RSpec.describe DraftMailer, type: :mailer do
     end
 
     it "renders the body" do
-      expected_content = "With the 20th and final pick"
+      expected_content = "With the 20th overall pick"
       expect(mail.body.encoded).to match(expected_content)
     end
   end

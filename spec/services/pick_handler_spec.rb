@@ -9,18 +9,17 @@ describe PickHandler, '.run' do
   end
 
   context 'when the on deck picker has set an autodraft list' do
-    let(:next_pick) {draft.next_5_picks.first}
-    let(:autodraft) {create(:autodraft, draft: draft, player: next_pick.player,
+    let!(:next_pick) {draft.next_5_picks.second}
+    let!(:autodraft) {create(:autodraft, draft: draft, player: next_pick.player,
                             draftable: draft.draftables.last)}
 
     it 'makes the next pick from that autodraft' do
       PickHandler.run(draft.id, draft.draftables.third)
+      draft.reload
       expect(draft.most_recently_made_pick.draftable).to eq autodraft.draftable
     end
 
-    pending 'multiple picks on email'
-    pending 'two autodrafts with same team'
-
+    pending 'sends both picks to the MailManager'
 
   end
 

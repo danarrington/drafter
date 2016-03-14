@@ -8,7 +8,7 @@ describe "Receiving a 'pick made' email during a draft" do
     clear_emails
     current_pick = draft.current_pick
     current_pick.update(draftable: draft.remaining_draftables.first)
-    DraftMailer.pick_made(player_to_mail, draft).deliver
+    DraftMailer.pick_made(player_to_mail, draft, [current_pick]).deliver
     open_email(player_to_mail.email)
   end
 
@@ -25,7 +25,7 @@ describe "Receiving a 'pick made' email during a draft" do
   end
 
   it 'should list the recipients next pick' do
-    #emailing the 
+    #emailing the
     expected = "You're next pick is the 5th pick"
     expect(current_email).to have_content expected
   end

@@ -2,7 +2,10 @@
 x Decide on schema
 x Create migrations
 x Refactor pick controller pick handling to service object
-- Add tests to that to handle autopicks
+x Add tests to that to handle autopicks
+x Return made autodrafts to pick handler
+x Add autodrafted to pick
+x Include made autodrafts in email
 - Be able to set your autopick
 
 == Next things ==

@@ -11,11 +11,10 @@ class PickHandler
 
   private
 
-  def.handle_pick(draft, draftable_id)
-    pick = update_pick(draft.current_pick, draftable_id)
-    make_auto_draft_picks
-    #autodraft
-    send_pick_made_emails(pick)
+  def self.handle_pick(draft, draftable_id)
+    picks = [update_pick(draft.current_pick, draftable_id)]
+    picks += AutoDrafter.run(draft)
+    send_pick_made_emails(picks)
   end
 
   def self.update_pick(pick, draftable_id)
@@ -24,8 +23,8 @@ class PickHandler
     pick
   end
 
-  def self.send_pick_made_emails(pick)
-    MailManager.send_pick_made_emails(pick)
+  def self.send_pick_made_emails(picks)
+    MailManager.send_pick_made_emails(picks)
   end
 
 end

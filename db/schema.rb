@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309151659) do
+ActiveRecord::Schema.define(version: 20160314020713) do
 
   create_table "autodrafts", force: true do |t|
     t.integer  "draft_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20160309151659) do
     t.integer  "number"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "autodrafted"
   end
 
   add_index "picks", ["draft_id"], name: "index_picks_on_draft_id"

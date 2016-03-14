@@ -96,7 +96,7 @@ describe 'Making a pick' do
     let!(:draft) {create(:mid_draft_draft)}
     let(:team_to_autodraft) {draft.draftables.last}
     before do
-      next_picker = draft.picks[draft.current_pick.id+1].player
+      next_picker = draft.next_5_picks.second.player
       create(:autodraft, draft: draft, player: next_picker,
              draftable: team_to_autodraft)
     end

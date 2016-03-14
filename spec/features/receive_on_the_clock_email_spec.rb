@@ -6,7 +6,8 @@ describe "Receiving a 'on the clock' email during a draft" do
   before do
     clear_emails
     current_picker = draft.current_pick.player
-    DraftMailer.on_the_clock(current_picker, draft).deliver
+    picks = [draft.most_recently_made_pick]
+    DraftMailer.on_the_clock(current_picker, draft, picks).deliver
     open_email(current_picker.email)
   end
 
@@ -20,7 +21,7 @@ describe "Receiving a 'on the clock' email during a draft" do
   it 'should be able to make a pick from the email' do
     current_picker = draft.current_pick.player
     current_email.click_link 'Pick', match: :first
-      
+
     expect(current_picker.made_picks_for(draft).count).to eq 1
   end
 
