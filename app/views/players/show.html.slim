@@ -1,9 +1,9 @@
 section
-  p 
-    | #{@facade.current_picker} is currently on the clock with the 
-    | #{@facade.current_pick} pick. 
+  p
+    | #{@facade.current_picker} is currently on the clock with the
+    |  #{@facade.current_pick} pick.
     - if @facade.any_picks_left
-      | You're next pick is the #{@facade.your_next_pick}.
+      |  You're next pick is the #{@facade.your_next_pick}.
     - else
       | You have no picks left.
   p
@@ -12,13 +12,13 @@ section
 .thin-bar Your Picks
 section.draftable-table
   ul
-    - @facade.picks.each do |p| 
+    - @facade.picks.each do |p|
       li
         .rank = p.number
         .name = p.draftable.name if p.draftable
 .thin-bar Draft Status
 section.draftable-table
-  ul 
+  ul
     - @facade.surrounding_picks.each do |p|
       li class="#{'hilighted' if p.player == current_player}"
         .rank = p.number

@@ -9,12 +9,10 @@ section.draftable-table.current-autodrafts
   ul
     - @autodrafts.each do |a|
       li
-        .rank
-          a.btn href="#" ^
+        i.btn.fa.fa-chevron-up href="#"
         .rank = a.order
         .name = a.draftable.name
-        .rank
-          a.btn href="#" V
+        i.btn.fa.fa-chevron-down href="#"
 .thin-bar Top remaining teams
 section.draftable-table.remaining-draftables
   ul
