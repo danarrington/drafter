@@ -2,7 +2,8 @@ class PlayerTeamFacade
   include Rails.application.routes.url_helpers
 
   attr_accessor :current_pick, :current_picker, :any_picks_left,
-    :your_next_pick, :picks, :surrounding_picks, :draft, :count
+    :your_next_pick, :picks, :surrounding_picks, :draft, :count,
+    :player
 
   
   def initialize(draft_id, player, count: nil)
@@ -13,6 +14,7 @@ class PlayerTeamFacade
     @picks = player.picks_for(draft)
     @any_picks_left = draft.next_pick_for(player)
     @surrounding_picks = draft.surrounding_picks(@count)
+    @player = player
 
     if @any_picks_left
       @your_next_pick = draft.next_pick_for(player).number.ordinalize
@@ -25,6 +27,10 @@ class PlayerTeamFacade
 
   def more_to_show?
     @count >= draft.picks.count
+  end
+
+  def autodraft_path
+    autodrafts_path(@draft, @player)
   end
 
 

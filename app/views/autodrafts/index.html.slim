@@ -5,7 +5,7 @@ header
     be the envy of the draft as no one has to wait for you to get out of your
     meeting to make your pick.
 .thin-bar Your current autodraft list
-section.draftable-table
+section.draftable-table.current-autodrafts
   ul
     - @autodrafts.each do |a|
       li
@@ -16,7 +16,7 @@ section.draftable-table
         .rank
           a.btn href="#" V
 .thin-bar Top remaining teams
-section.draftable-table
+section.draftable-table.remaining-draftables
   ul
     - @top_remaining.each do |d|
       li

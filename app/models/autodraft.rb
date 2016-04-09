@@ -12,7 +12,7 @@ class Autodraft < ActiveRecord::Base
   def self.current_for(draft, player)
     #TODO optimize query
     autodrafts = where(draft: draft, player: player)
-    autodrafts.reject{|a| Pick.where(draftable: a).any?}
+    autodrafts.reject{|a| Pick.where(draftable: a.draftable_id).any?}
   end
 
   private

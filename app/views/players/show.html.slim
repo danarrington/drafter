@@ -7,7 +7,7 @@ section
     - else
       | You have no picks left.
   p
-    a.btn.btn-block href='#TODO' Set Autodraft
+    = link_to "Set Autodraft", @facade.autodraft_path, class: "btn btn-block"
 
 .thin-bar Your Picks
 section.draftable-table
