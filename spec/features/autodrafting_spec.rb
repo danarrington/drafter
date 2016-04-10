@@ -15,9 +15,21 @@ feature 'User adds an autodraft draftable' do
 
       within('.current-autodrafts') do
         expect(page).to have_content best_team_left_row.find('.name').text
+        expect(page).to have_content '1'
       end
       within('.remaining-draftables') do
         expect(page).to_not have_content best_team_left_row.find('.name').text
+      end
+
+      #add the next best team
+      next_best_team_left_row = page.first(:css, '.remaining-draftables li')
+      within(next_best_team_left_row) do
+        click_button 'Add'
+      end
+
+      within('.current-autodrafts') do
+        expect(page).to have_content best_team_left_row.find('.name').text
+        expect(page).to have_content '2'
       end
 
 
