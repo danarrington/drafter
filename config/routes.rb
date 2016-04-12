@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     as: :autodrafts
   post 'autodrafts/:draft_id/:player_id/:draftable_id' =>
     'autodrafts#create', as: :add_autodraft
+  delete 'autodrafts/:id' => 'autodrafts#destroy', as: :autodraft
 
   if Rails.env.development?
       mount LetterOpenerWeb::Engine, at: "/emails"

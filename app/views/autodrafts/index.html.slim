@@ -12,6 +12,7 @@ section.draftable-table.current-autodrafts
         i.btn.fa.fa-chevron-up href="#"
         .rank = a.order
         .name = a.draftable.name
+        .remove-button = button_to "Remove", autodraft_path(a), method: :delete
         i.btn.fa.fa-chevron-down href="#"
 .thin-bar Top remaining teams
 section.draftable-table.remaining-draftables

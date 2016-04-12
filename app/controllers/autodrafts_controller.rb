@@ -15,4 +15,22 @@ class AutodraftsController < ApplicationController
     repo.save(draftable)
     redirect_to autodrafts_path(draft, current_player)
   end
+
+  before_action :redirect_to_player_page_if_unauthorized_delete, only: [:destroy]
+
+  def destroy
+    autodraft = Autodraft.find(params[:id])
+    repo = AutoDraftRepository.new(autodraft.draft, current_player)
+    repo.destroy(autodraft.id)
+    redirect_to autodrafts_path(autodraft.draft, autodraft.player)
+  end
+
+  private
+
+  def redirect_to_player_page_if_unauthorized_delete
+    autodraft = Autodraft.find(params[:id])
+    if autodraft.player != current_player
+      redirect_to player_page_url(autodraft.draft)
+    end
+  end
 end
