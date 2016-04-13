@@ -9,11 +9,13 @@ section.draftable-table.current-autodrafts
   ul
     - @autodrafts.each do |a|
       li
-        = link_to '', autodraft_path(a, :up), method: :patch, class: 'btn fa fa-chevron-up'
+        = link_to '', autodraft_path(a, direction: :up), method: :patch,
+          class: 'btn fa fa-chevron-up'
         .rank = a.order
         .name = a.draftable.name
         .remove-button = button_to "Remove", autodraft_path(a), method: :delete
-        i.btn.fa.fa-chevron-down href="#"
+        = link_to '', autodraft_path(a, direction: :down), method: :patch,
+          class: 'btn fa fa-chevron-down'
 .thin-bar Top remaining teams
 section.draftable-table.remaining-draftables
   ul

@@ -60,6 +60,11 @@ feature 'Adding and managing autodrafts' do
       expect(reordered_autodrafts[1]).to have_content '2'
       expect(reordered_autodrafts[1]).to have_content original_top_team
 
+      reordered_autodrafts[1].find('.fa-chevron-up').click
+      rereordered_autodrafts = page.all('.current-autodrafts li')
+      expect(rereordered_autodrafts[0]).to have_content '1'
+      expect(rereordered_autodrafts[0]).to have_content original_top_team
+
     end
 
     private

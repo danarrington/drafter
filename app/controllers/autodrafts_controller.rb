@@ -12,7 +12,7 @@ class AutodraftsController < ApplicationController
   def create
     draft = Draft.find(params[:draft_id])
     draftable = Draftable.find(params[:draftable_id])
-    repo = AutoDraftRepository.new(draft, current_player)
+    repo = AutodraftRepository.new(draft, current_player)
     repo.save(draftable)
     redirect_to draft_autodrafts_path(draft)
   end
@@ -21,8 +21,15 @@ class AutodraftsController < ApplicationController
 
   def destroy
     autodraft = Autodraft.find(params[:id])
-    repo = AutoDraftRepository.new(autodraft.draft, current_player)
+    repo = AutodraftRepository.new(autodraft.draft, current_player)
     repo.destroy(autodraft.id)
+    redirect_to draft_autodrafts_path(autodraft.draft)
+  end
+
+  def update
+    autodraft = Autodraft.find(params[:id])
+    repo = AutodraftRepository.new(autodraft.draft, current_player)
+    repo.move(autodraft.id, params[:direction])
     redirect_to draft_autodrafts_path(autodraft.draft)
   end
 
