@@ -1,4 +1,5 @@
 class AutodraftsController < ApplicationController
+
   def index
     @draft = Draft.find(params[:draft_id])
     @autodrafts = Autodraft.current_for(@draft, current_player)
@@ -13,7 +14,7 @@ class AutodraftsController < ApplicationController
     draftable = Draftable.find(params[:draftable_id])
     repo = AutoDraftRepository.new(draft, current_player)
     repo.save(draftable)
-    redirect_to autodrafts_path(draft, current_player)
+    redirect_to draft_autodrafts_path(draft)
   end
 
   before_action :redirect_to_player_page_if_unauthorized_delete, only: [:destroy]
@@ -22,7 +23,7 @@ class AutodraftsController < ApplicationController
     autodraft = Autodraft.find(params[:id])
     repo = AutoDraftRepository.new(autodraft.draft, current_player)
     repo.destroy(autodraft.id)
-    redirect_to autodrafts_path(autodraft.draft, autodraft.player)
+    redirect_to draft_autodrafts_path(autodraft.draft)
   end
 
   private

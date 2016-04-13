@@ -9,7 +9,7 @@ section.draftable-table.current-autodrafts
   ul
     - @autodrafts.each do |a|
       li
-        i.btn.fa.fa-chevron-up href="#"
+        = link_to '', autodraft_path(a, :up), method: :patch, class: 'btn fa fa-chevron-up'
         .rank = a.order
         .name = a.draftable.name
         .remove-button = button_to "Remove", autodraft_path(a), method: :delete
@@ -21,6 +21,6 @@ section.draftable-table.remaining-draftables
       li
         .rank = d.rank
         .name = d.name
-        .pick = button_to "Add", add_autodraft_path(@draft, @player, d)
+        .pick = button_to "Add", draft_autodrafts_path(@draft, draftable_id: d)
 
 

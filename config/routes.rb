@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'draft#welcome'
   resources :drafts, only: [] do
     resource :recap, only: [:show]
+    resources :autodrafts, only: [:index, :create, :destroy, :update], shallow: true
   end
 
 
@@ -30,12 +31,6 @@ Rails.application.routes.draw do
 
   get 'players/show/:draft_id' => 'players#show', as: :player_page
   get 'players/all_picks/:draft_id' => 'players#all_picks', as: :all_picks
-
-  get 'autodrafts/:draft_id/:player_id/(:token)' => 'autodrafts#index',
-    as: :autodrafts
-  post 'autodrafts/:draft_id/:player_id/:draftable_id' =>
-    'autodrafts#create', as: :add_autodraft
-  delete 'autodrafts/:id' => 'autodrafts#destroy', as: :autodraft
 
   if Rails.env.development?
       mount LetterOpenerWeb::Engine, at: "/emails"

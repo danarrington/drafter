@@ -30,7 +30,7 @@ class PlayerTeamFacade
   end
 
   def autodraft_path
-    autodrafts_path(@draft, @player)
+    draft_autodrafts_path(@draft)
   end
 
 

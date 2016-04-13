@@ -35,27 +35,43 @@ feature 'Adding and managing autodrafts' do
 
     scenario 'A user can remove an autodraft, re-ordering the rest' do
       on_deck_player = draft.next_5_picks.second.player
-      visit autodrafts_path(draft, on_deck_player, on_deck_player.token)
+      visit autodraft_path_for(on_deck_player)
 
-      team_a_row = page.first(:css, '.remaining-draftables li')
-      within(team_a_row) do
-        click_button 'Add'
-      end
+      3.times { add_top_remaining_draftable }
 
-      team_b_row = page.first(:css, '.remaining-draftables li')
-      within(team_b_row) do
-        click_button 'Add'
-      end
-
-      # Remove team a from autodraft
-      first('li').click_button('Remove')
+      top_autodraft_row = first('li')
+      top_autodraft_row.click_button('Remove')
 
       within('.current-autodrafts') do
-        expect(page).to_not have_content team_a_row.find('.name').text
+        expect(page).to_not have_content top_autodraft_row.find('.name').text
       end
+    end
 
+    scenario 'A user can re-order existing autodrafts' do
+      on_deck_player = draft.next_5_picks.second.player
+      visit autodraft_path_for(on_deck_player)
+      3.times { add_top_remaining_draftable }
 
+      original_autodrafts = page.all('.current-autodrafts li')
+      original_autodrafts[0].find('.fa-chevron-down').click
+      original_top_team = original_autodrafts[0].find('.name').text
 
+      reordered_autodrafts = page.all('.current-autodrafts li')
+      expect(reordered_autodrafts[1]).to have_content '2'
+      expect(reordered_autodrafts[1]).to have_content original_top_team
+
+    end
+
+    private
+
+    def add_top_remaining_draftable
+      within('.remaining-draftables') do
+        first('li').click_button('Add')
+      end
+    end
+
+    def autodraft_path_for(player)
+      draft_autodrafts_path(draft, player_id: player, token: player.token)
     end
 
 end
