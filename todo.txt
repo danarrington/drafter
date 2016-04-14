@@ -1,15 +1,6 @@
-== Autopick list ==
-x Decide on schema
-x Create migrations
-x Refactor pick controller pick handling to service object
-x Add tests to that to handle autopicks
-x Return made autodrafts to pick handler
-x Add autodrafted to pick
-x Include made autodrafts in email
-- Be able to set your autopick
 
 == Next things ==
-- Autopick list
+- Fix broken tests
 - 12factor -> papertrail
 - New draft email (draft started)
 - Timed tasks
@@ -128,6 +119,18 @@ x Page needs to not explode after the last pick is made
 x Push
 x Setup mailgun
 x Fix asset pipeline
+
+== Autopick list ==
+x Decide on schema
+x Create migrations
+x Refactor pick controller pick handling to service object
+x Add tests to that to handle autopicks
+x Return made autodrafts to pick handler
+x Add autodrafted to pick
+x Include made autodrafts in email
+x Be able to set your autopick
+x Autodraft link in email
+x Link back from autodraft page
 
 Digital Ocean
 - Ran this to add the rsa key cat ~/.ssh/id_rsa.pub | ssh root@your.ip.address "sudo sshcommand acl-add dokku [description]"

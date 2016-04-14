@@ -41,11 +41,13 @@ class AutodraftRepository
   end
 
   def swap_autodraft_up(autodraft_to_move, autodrafts)
+    return if autodraft_to_move == autodrafts.first
     index = autodrafts.index(autodraft_to_move)
     autodrafts[index], autodrafts[index-1] = autodrafts[index-1], autodrafts[index]
   end
 
   def swap_autodraft_down(autodraft_to_move, autodrafts)
+    return if autodraft_to_move == autodrafts.last
     index = autodrafts.index(autodraft_to_move)
     autodrafts[index], autodrafts[index+1] = autodrafts[index+1], autodrafts[index]
   end

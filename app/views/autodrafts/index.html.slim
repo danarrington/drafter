@@ -24,5 +24,8 @@ section.draftable-table.remaining-draftables
         .rank = d.rank
         .name = d.name
         .pick = button_to "Add", draft_autodrafts_path(@draft, draftable_id: d)
+section
+  .spacer
+   =link_to "Back", player_page_path(@draft), class: 'btn btn-block'
 
 

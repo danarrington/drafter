@@ -67,6 +67,12 @@ describe AutodraftRepository, '.move' do
       autodraft_2.reload
       expect(autodraft_2.order).to eq 1
     end
+
+    it 'should do nothing if the team is already last' do
+      subject.move(autodraft_3.id, :down)
+      autodraft_3.reload
+      expect(autodraft_3.order).to eq 3
+    end
   end
 
   describe 'moving an autodraft up' do
@@ -81,8 +87,11 @@ describe AutodraftRepository, '.move' do
       autodraft.reload
       expect(autodraft.order).to eq 2
     end
-  end
 
-  pending 'move top element up'
-  pending 'move bottom element down'
+    it 'should do nothing if the team is already first' do
+      subject.move(autodraft.id, :up)
+      autodraft.reload
+      expect(autodraft.order).to eq 1
+    end
+  end
 end

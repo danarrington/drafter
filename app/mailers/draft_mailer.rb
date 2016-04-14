@@ -25,6 +25,7 @@ class DraftMailer < ActionMailer::Base
     @next_pick = draft.next_pick_for(recipient)
     @upcoming_picks = draft.next_5_picks
     @top_remaining_draftables = draft.remaining_draftables.limit(5)
+    @autodraft_path = draft_autodrafts_path(draft)
     mail to: recipient.email, subject: "Drafter: A pick has been made"
   end
 

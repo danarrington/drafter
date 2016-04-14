@@ -1,6 +1,8 @@
 FactoryGirl.define do
   factory :draftable do
-    name {Faker::Team.state}
+    sequence :name do |n|
+      "#{Faker::Team.state}#{n}"
+    end
     rank 1
   end
 
