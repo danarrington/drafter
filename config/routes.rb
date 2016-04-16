@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
-
-  get 'recaps/show'
-
   root 'draft#welcome'
+
   resources :drafts, only: [] do
     resource :recap, only: [:show]
     resources :autodrafts, only: [:index, :create, :destroy, :update], shallow: true
@@ -24,7 +22,7 @@ Rails.application.routes.draw do
   get 'new/:id/review' => 'draft#review', as: :review_draft
   post 'new/:id/start' => 'draft#start', as: :start_draft
 
-  get 'picks/:draft_id/:player_id/:token' => 'picks#new', as: :pick
+  get 'picks/:draft_id/:player_id/(:token)' => 'picks#new', as: :pick
   post 'picks/make/:draft_id/:draftable_id' => 'picks#make', as: :make_pick
   get 'picks/make/:draft_id/:player_id/:draftable_id/:token' =>
     'picks#make', as: :make_pick_from_email

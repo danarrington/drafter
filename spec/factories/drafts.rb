@@ -7,7 +7,7 @@ FactoryGirl.define do
         create_list(:draftable, 20, draft: draft)
       end
     end
-    
+
     #A draft in the middle of the draft.  Perhaps not the best name ever.
     factory :mid_draft_draft do
       after(:create) do |draft|
@@ -19,7 +19,7 @@ FactoryGirl.define do
       end
     end
 
-    #A draft near the end.  
+    #A draft near the end.
     factory :late_draft_draft do
       after(:create) do |draft|
         create_list(:draftable, 20, draft: draft)

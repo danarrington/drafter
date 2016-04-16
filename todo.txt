@@ -1,6 +1,9 @@
+- Fix broken tests
+ x recaps controller
+ - draft mailer
+ - draft starter
 
 == Next things ==
-- Fix broken tests
 - 12factor -> papertrail
 - New draft email (draft started)
 - Timed tasks

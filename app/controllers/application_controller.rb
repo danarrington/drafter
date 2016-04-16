@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
     player_id = params[:player_id]
     return if player_signed_in? && auth_token.blank?
 
+    return redirect_to sign_in_path if player_id.blank?
+
     player = Player.find(player_id)
 
     if (Devise.secure_compare(player.authentication_token, auth_token))
